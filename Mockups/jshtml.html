@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -38,7 +39,9 @@ width:100%;
 </div>
 <button id="guardar" class="btn btn-primary">Guardar </button>
 <button id="cargar" class="btn btn-primary">Cargar </button>
-<div class="aplicacion_wrapper">
+<button id="insertar" class="btn btn-primary">Insertar </button>
+<button id="copiar" class="btn btn-primary">Copiar </button>
+<div class="aplicacion_wrapper" id="pantalla">
    <div class="container application_resize">
     <div class="row">
     <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div>
@@ -63,6 +66,26 @@ width:100%;
   crossorigin="anonymous"> </script>
  
  <script>
+ (function($) {
+    $.fn.getCursorPosition = function() {
+        var input = this.get(0);
+        if (!input) return; // No (input) element found
+        if ('selectionStart' in input) {
+            // Standard-compliant browsers
+            return input.selectionStart;
+        } else if (document.selection) {
+            // IE
+            input.focus();
+            var sel = document.selection.createRange();
+            var selLen = document.selection.createRange().text.length;
+            sel.moveStart('character', -input.value.length);
+            return sel.text.length - selLen;
+        }
+    }
+})(jQuery);
+
+
+
 	$("#raw_yolo").on("keydown keyup change", function(){
 		$("#content").html($.parseHTML($("#raw_yolo").val()));
 	})
@@ -73,8 +96,41 @@ width:100%;
 		$("#raw_yolo").val(sessionStorage.getItem('html'));
 	});
 	$("#copiar").click(function(){
+
+		  // Crea un campo de texto "oculto"
+		  var aux = document.createElement("input");
+
+		  // Asigna el contenido del elemento especificado al valor del campo
+		  aux.setAttribute("value", document.getElementById("pantalla").innerHTML);
+
+		  // Añade el campo a la página
+		  document.body.appendChild(aux);
+
+		  // Selecciona el contenido del campo
+		  aux.select();
+
+		  // Copia el texto seleccionado
+		  document.execCommand("copy");
+
+		  // Elimina el campo de la página
+		  document.body.removeChild(aux);
+
+		  $("#copiar").html("Copiado!")
+
+	})
+	$("#insertar").click(function(){
 		$(".aplicacion_wrapper").html();
+		alert($("#raw_yolo").getCursorPosition())
+
+		var $txt = $("#raw_yolo");
+        var caretPos = $txt.getCursorPosition();
+        var textAreaTxt = $txt.val();
+        var txtToAdd = '<div class="margin_30"></div><div class="row"> \
+        <div class="col-sm-2"></div><div class="col-sm-8"></div></div>';
+        $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
 	});
+
+
   </script>
 </script>
 </body>
