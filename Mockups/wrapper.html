@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel ="stylesheet" href="css/my_style.css">
+</head>
+<body>
+<div class="margin_30"></div>
+<div class="aplicacion_wrapper" id="pantalla">
+
+
+<div class="container application_resize">    <div class="row">    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div></div>   </div>
+
+<div id="content">
+
+<iframe id="iframe" src="registrarme.html"></iframe>
+
+</div>
+
+<button id="normalizar" type="button">Normalizr</button>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"> </script>
+ 
+<script>
+	$("#normalizar").click(function(){
+		$("#content").html($("#iframe").contents().find("body").html())
+
+	})
+	$("#registrarme").click(function(){
+		if ($("#user").val().length > 0 && $("#dni").val().length > 0 && $("#password").val().length > 0 && $("#r_password").val().length > 0){
+		sessionStorage.setItem('user', $("#user").val())
+		sessionStorage.setItem('password', $("#password").val())
+		sessionStorage.setItem('dni', $("#dni").val())
+		window.location.href = "login.html"
+		}
+		else{
+			$("#error").html("Debes completar todos los campos!")
+
+		}
+	})
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

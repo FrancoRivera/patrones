@@ -1,37 +1,10 @@
- <!DOCTYPE html>
+ <!--<!DOCTYPE html>
 <html>
 <meta charset="utf-8">
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<style>
-#raw_content{
-width:100%;
-height:300px;
-border: 1px solid black;
-}
-#raw_yolo{
-width:100%;
-height:100%;
-}
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-  position: relative;
-  min-height: 1px;
-  padding: 0px;
-}
 
-.aplicacion_wrapper{ width:750px; height:1334px; margin: 0 auto; }
-.application_resize { width: 40%; height:40%; border:1px solid black; position:relative;}
-.margin_30{width:100%;height:30px;}
-.margin_100{width:100%;height:100px;}
-.footer_nav{
-height: 50px;
-margin: 0 -15px 0 -15px;
-border: 1px solid black;
-position:absolute; bottom:0px;
-width:100%;
-}
-</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel ="stylesheet" href="css/my_style.css">
 </head>
 <body>
 <div class="margin_30"></div>
@@ -41,14 +14,50 @@ width:100%;
 <div class="container application_resize">    <div class="row">    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div></div>   </div>
 
 <div id="content">
-<div class="margin_30"></div>
+<div class="margin_10"></div>
 <div class="row">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8"><h3>Registrate!</h3></div>
 </div>
-<div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="usuario">Usuario o Email:</label><input type="text" id="user" class="form-control" placeholder="Usuario o Email" required="required"></div></div><div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="usuario">Contraseña:</label><input type="password" id="password" class="form-control" placeholder="Contraseña" required="required"></div></div><div class="margin_30"></div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Usuario o Email*:</label><input type="text" id="user" class="form-control" placeholder="Usuario o Email" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="dni">DNI*:</label><input type="text" id="dni" class="form-control" placeholder="DNI" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Telefono*:</label><input type="text" id="phone" class="form-control" placeholder="Telefono" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Distrito*:</label><select id="place" class="form-control" required="required">
+		<option value="Ate">Ate </option>
+		<option value="Cercado de Lima"> Cercado de Lima </option>
+		<option value="Jesus Maria"> Jesus Maria </option>
+		<option value="Magdalena del Mar"> Magdalena del Mar </option>
+		<option value="Miraflores"> Miraflores </option>
+		<option value="Pueblo Libre"> Pueblo Libre </option>
+		<option value="San Isidro"> San Isidro </option>
+		<option value="Santiago de Surco"> Santiago de Surco</option>
+		<option value="La Molina"> La Molina </option>
+		</select>
+	</div>
+</div>
+<div class="margin_10"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="password">Contraseña:*</label><input type="password" id="password" class="form-control" placeholder="Contraseña" required="required"></div></div>
+
+<div class="margin_10"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="password">Repite Contraseña:*</label><input type="password"  id="r_password" class="form-control" placeholder="Repite Contraseña" required="required"></div></div>
+
+
+<div class="margin_10"></div>
 <div class="row"> 
-<div class="col-sm-2"></div><div class="col-sm-8"><span class="text-danger" id="error"></span>
+<div class="col-sm-2"></div><div class="col-sm-8"><span class="text-danger" id="error">*Campos Obligatorios</span>
 </div></div>
 <div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><button id="registrarme" class="btn btn-primary form-control">Registrate</button></div></div></div><div class="footer_nav"></div>   </div>
 
@@ -62,21 +71,79 @@ width:100%;
  
 <script>
 	$("#registrarme").click(function(){
-		if ($("#user").val().length > 0  && $("#password").val().length > 0){
+		if ($("#user").val().length > 0 && $("#dni").val().length > 0 && $("#password").val().length > 0 && $("#r_password").val().length > 0){
 		sessionStorage.setItem('user', $("#user").val())
 		sessionStorage.setItem('password', $("#password").val())
+		sessionStorage.setItem('dni', $("#dni").val())
 		window.location.href = "login.html"
 		}
 		else{
-			$("#error").html("Debes de ingresar un usuario y una contraseña!")
+			$("#error").html("Debes completar todos los campos!")
 
 		}
 	})
 </script>
 </body>
 </html>
+-->
 
 
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8"><h3>Registrate!</h3></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Usuario o Email*:</label><input type="text" id="user" class="form-control" placeholder="Usuario o Email" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="dni">DNI*:</label><input type="text" id="dni" class="form-control" placeholder="DNI" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Telefono*:</label><input type="text" id="phone" class="form-control" placeholder="Telefono" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Distrito*:</label><select id="place" class="form-control" required="required">
+		<option value="Ate">Ate </option>
+		<option value="Cercado de Lima"> Cercado de Lima </option>
+		<option value="Jesus Maria"> Jesus Maria </option>
+		<option value="Magdalena del Mar"> Magdalena del Mar </option>
+		<option value="Miraflores"> Miraflores </option>
+		<option value="Pueblo Libre"> Pueblo Libre </option>
+		<option value="San Isidro"> San Isidro </option>
+		<option value="Santiago de Surco"> Santiago de Surco</option>
+		<option value="La Molina"> La Molina </option>
+		</select>
+	</div>
+</div>
+<div class="margin_10"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="password">Contraseña:*</label><input type="password" id="password" class="form-control" placeholder="Contraseña" required="required"></div></div>
+
+<div class="margin_10"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="password">Repite Contraseña:*</label><input type="password"  id="r_password" class="form-control" placeholder="Repite Contraseña" required="required"></div></div>
+
+
+<div class="margin_10"></div>
+<div class="row"> 
+	<div class="col-sm-2"></div><div class="col-sm-8"><span class="text-danger" id="error">*Campos Obligatorios</span>
+	</div>
+</div>
+<div class="margin_30"></div>
+	<div class="row">	
+		<div class="col-sm-2"></div>	<div class="col-sm-8"><button id="registrarme" class="btn btn-primary form-control">Registrate</button></div>
+	</div>
+
+</div>
+
+<div class="footer_nav"></div>   
+
+</div>
 
 
 
