@@ -7,35 +7,6 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <link rel ="stylesheet" href="css/my_style.css">
 
-<style type="text/css" media="screen">
-	.opciones{
-		    background: white;
-    color: black;
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    margin-left: -15px;
-    bottom: 0;
-    display:none;
-	}
-	.cantidades{
-		    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    color: black;
-    margin-left: -15px;
-    padding-top: 30px;
-    display:none;
-	}
-	.faded{
-		opacity:0.6;
-	}
-	.letra_20{
-		font-size:20px;
-	}
-</style>
 </head>
 <body>
 <div class="margin_30"></div>
@@ -52,7 +23,8 @@
 
 <div class="margin_30"></div>
 <div class="row">
-	<div class="col-sm-2"></div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-1"><a href="home.html"><span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a></div>
 	<div class="col-sm-8"><h3>Realizar un Pedido!</h3></div>
 </div>
 
@@ -68,6 +40,19 @@
 	<div class="col-sm-8"><button type="button" id="buscar" class="btn btn-primary form-control">Buscar</button></div>
 </div>
 
+<div class="margin_30"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8"><span class="h4">Tu carrito</span> &nbsp <button class="btn btn-danger">Editar</button></div>
+</div>
+<div class="margin_10"></div>
+<div class="row carrito_lista">
+</div>
+<div class="margin_30"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-4"><h4>Total: </h4></div><div class="col-sm-4" ><h4 id="total_carrito">S/. 0.00</h4></div>
+</div>
 <div class="margin_30"></div>
 
 <div class="opciones">
@@ -106,7 +91,6 @@
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"><button type="button" id="cancelar" class="btn btn-danger form-control">Cancelar </button></h4></div>
 	</div>
-
 </div>
 
 <div class="cantidades">
@@ -172,6 +156,14 @@
 
 <script>
 
+var carrito = [];
+$(document).ready(function(){
+	if(sessionStorage.getItem("carrito") != null)
+		carrito = JSON.parse(sessionStorage.getItem("carrito"))
+	console.log(carrito)
+	ActualizarCarrito()
+})
+
 function Producto(qty, producto, precio, subtotal) {
 	this.qty = qty;
 	this.producto = producto;
@@ -180,18 +172,31 @@ function Producto(qty, producto, precio, subtotal) {
 
 }
 
-var arreglo = [];
+
+function ActualizarCarrito(){
+	var total = 0;
+	$(".carrito_lista").html("")
+	for (var i= 0; i < carrito.length; i++ ){
+		var str = "<div class='row'><div class='col-sm-3'></div><div class='col-md-3'>"+ carrito[i].producto + "</div><div class='col-md-3'> S./ "+ carrito[i].subtotal + "</div></div>"
+		$(".carrito_lista").append(str)
+		total += parseFloat(carrito[i].subtotal)
+	}
+	$("#total_carrito").html("S./ " + total)
+}
+
 
 $("#add_2_cart").click(function(){
 	qty = parseFloat($("#qty").val())
 	producto =  $("#tu_producto").html()
 	precio = parseFloat($("#tu_precio").html().substring(3))
 	subtotal = parseFloat($("#sub_total").html())
-	yolo = new Producto(qty, producto, precio, subtotal);
-	arreglo.push(yolo)
-	console.log(arreglo)
+	nueva_compra = new Producto(qty, producto, precio, subtotal);
+	carrito.push(nueva_compra)
+	sessionStorage.setItem("carrito", JSON.stringify(carrito))
+
 	$("#cancelar_cantidades").click();
 	$("#cancelar").click();
+	ActualizarCarrito();
 
 })
 
