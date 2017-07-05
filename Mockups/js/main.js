@@ -1,0 +1,3 @@
+function validarLogin(){
+	return true;
+}

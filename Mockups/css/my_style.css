@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+body{
+    background: #cc5050;
+    color: white;
+	text-align: center;
+
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Slab', serif;
+}
+
 #raw_content{
 width:100%;
 height:300px;
@@ -14,7 +26,7 @@ height:100%;
 }
 
 .aplicacion_wrapper{ width:375px; height:667px; margin: 0 auto; }
-.application_resize { width: 80%; height:80%; border:1px solid black; position:relative;}
+.application_resize { width: 80%; height:80%; border:1px solid black; position:relative;     background: #292929;}
 .margin_10{width:100%;height:10px;}
 .margin_30{width:100%;height:30px;}
 .margin_100{width:100%;height:100px;}
@@ -27,5 +39,30 @@ width:100%;
 }
 #content{
     height: 436px;
-    overflow-y: scroll;
+    overflow-y: initial;
+    overflow-x: hidden;
+}
+.homeslab{
+    background: white;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 10px;
+    color: #3380af;
+}
+.hs_1{
+	background: #cc5050;
+	color:white!important;
+}
+.hs_2{
+	background: #449922;
+	color:white!important;
+}
+.hs_3{
+	background: #5088cc;;
+	color:white!important;
+}
+
+.hs_4{
+    background: #d8dc3a;
+    color: #5a5a5a;
 }

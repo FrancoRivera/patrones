@@ -1,0 +1,272 @@
+ <!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel ="stylesheet" href="css/my_style.css">
+
+<style type="text/css" media="screen">
+	.opciones{
+		    background: white;
+    color: black;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    margin-left: -15px;
+    bottom: 0;
+    display:none;
+	}
+	.cantidades{
+		    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    color: black;
+    margin-left: -15px;
+    padding-top: 30px;
+    display:none;
+	}
+	.faded{
+		opacity:0.6;
+	}
+	.letra_20{
+		font-size:20px;
+	}
+</style>
+</head>
+<body>
+<div class="margin_30"></div>
+<div class="aplicacion_wrapper" id="pantalla">
+
+
+<div class="container application_resize"> 
+
+   <div class="row">    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div></div>   </div>
+
+<div id="content">
+
+<!-- begining of plantilla-->
+
+<div class="margin_30"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8"><h3>Realizar un Pedido!</h3></div>
+</div>
+
+<div class="margin_30"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8"><label for="">Escribe lo que buscas</label><input type="text" name="" id="producto" class="form-control"></div>
+</div>
+
+<div class="margin_30"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8"><button type="button" id="buscar" class="btn btn-primary form-control">Buscar</button></div>
+</div>
+
+<div class="margin_30"></div>
+
+<div class="opciones">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"><h4 class="faded">Marca una opcion!</h4></div>
+	</div>
+	<div class="row">
+	<div class="col-sm-1"></div>
+		<div class="col-sm-3 faded">Casero</div>
+		<div class="col-sm-3 faded" >Precio/kg</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-3"><span class="letra_20">Juanita!</span></div>
+		<div class="col-sm-3 letra_20" id="precio_juanita">Precio</div>
+		<div class="col-sm-4"><button type="button" class="btn btn-success comprar_juanita" >Comprar</button></div>
+	</div>
+		<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-3"><span class="letra_20">Pedrito!</span></div>
+		<div class="col-sm-3 letra_20" id="precio_pedrito"><span class="">Precio!</span></div>
+		<div class="col-sm-4"><button type="button" class="btn btn-success comprar_pedrito" >Comprar</button></div>
+	</div>
+		<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-3"><span class="letra_20">Luis</span></div>
+		<div class="col-sm-3 letra_20" id="precio_luis">Precio</div>
+		<div class="col-sm-4"><button type="button" class="btn btn-success comprar_luis" >Comprar</button></div>
+	</div>
+			<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"><button type="button" id="cancelar" class="btn btn-danger form-control">Cancelar </button></h4></div>
+	</div>
+
+</div>
+
+<div class="cantidades">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"><h4 class="faded">Selecciona la cantidad!</h4></div>
+	</div>
+	<div class="row">
+	<div class="col-sm-1"></div>
+		<div class="col-sm-3 faded">Casero</div>
+		<div class="col-sm-4 faded">Producto</div>
+		<div class="col-sm-3 faded" >Precio/kg</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-3"><span class="letra_20" id="tu_casero">Juanita!</span></div>
+		<div class="col-sm-4 letra_20" id="tu_producto">Producto</div>
+		<div class="col-sm-3 letra_20" id="tu_precio">10.05</div>
+	</div>
+		<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-3"><span class="letra_20">QTY:</span></div>
+		<div class="col-sm-6"><input type="" name="" id="qty" class="form-control" placeholder="QTY"></div>
+	</div>
+		<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-3"><span class="letra_20">Total</span></div>
+		<div class="col-sm-3 letra_20">S./</div>
+		<div class="col-sm-3 letra_20" id="sub_total">0.00</div>
+	</div>
+			<div class="margin_30"></div>
+
+	<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"><button type="button" class="btn btn-success form-control" id="add_2_cart" ><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp &nbsp Agregar al Carrito</button></div>
+	</div>
+			<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"><button type="button" id="cancelar_cantidades" class="btn btn-danger form-control">Cancelar </button></h4></div>
+	</div>
+
+</div>
+
+
+	<!-- end of plantilla-->
+	
+</div>
+
+ </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"> </script>
+ <script
+  src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+<script>
+
+function Producto(qty, producto, precio, subtotal) {
+	this.qty = qty;
+	this.producto = producto;
+	this.precio = precio;
+	this.subtotal = subtotal; 
+
+}
+
+var arreglo = [];
+
+$("#add_2_cart").click(function(){
+	qty = parseFloat($("#qty").val())
+	producto =  $("#tu_producto").html()
+	precio = parseFloat($("#tu_precio").html().substring(3))
+	subtotal = parseFloat($("#sub_total").html())
+	yolo = new Producto(qty, producto, precio, subtotal);
+	arreglo.push(yolo)
+	console.log(arreglo)
+	$("#cancelar_cantidades").click();
+	$("#cancelar").click();
+
+})
+
+
+$("#qty").keyup(function(){
+	$("#sub_total").html((parseFloat($("#qty").val()) * parseFloat($("#tu_precio").html().substring(3))).toFixed(2) )
+})
+$("#buscar").click(function(){
+	  $( "#producto" ).keydown()
+})
+
+$(".comprar_luis").click(function(){
+	$("#tu_casero").html("Luis")
+	$("#tu_precio").html($("#precio_luis").html())
+	$("#tu_producto").html($("#producto").val())
+	$( ".cantidades" ).show( "slide", { direction: "down" }, "slow" );
+})
+
+$(".comprar_pedrito").click(function(){
+	$("#tu_casero").html("Pedrito")
+	$("#tu_precio").html($("#precio_pedrito").html())
+		$("#tu_producto").html($("#producto").val())
+	$( ".cantidades" ).show( "slide", { direction: "down" }, "slow" );
+})
+
+$(".comprar_juanita").click(function(){
+	$("#tu_casero").html("Juanita")
+	$("#tu_precio").html($("#precio_juanita").html())
+		$("#tu_producto").html($("#producto").val())
+	$( ".cantidades" ).show( "slide", { direction: "down" }, "slow" );
+})
+
+$("#cancelar_cantidades").click(function(){
+	$( ".cantidades" ).hide( "slide", { direction: "down" }, "slow" );
+})
+
+$("#cancelar").click(function(){
+	$( ".opciones" ).hide( "slide", { direction: "down" }, "slow" );
+})
+
+	usuario = sessionStorage.getItem('user')
+
+	$( function() {
+    var availableTags = [
+      "Manzanas",
+      "Peras",
+      "Platanos",
+      "Cebollas",
+      "Azucar",
+      "Tomates",
+      "Papa amarilla",
+      "Queso",
+      "Limones",
+      "Carne de Vaca",
+      "Carne de Chancho",
+      "Apio",
+      "Poro",
+      "Tallarines",
+      "Papa blanca",
+      "Ajos"
+    ];
+    $( "#producto" ).autocomplete({
+      source: availableTags,
+      select: function( event, ui ) {
+      	$("#precio_juanita").html("S/. " + (Math.random()*10).toFixed(2))
+      	$("#precio_luis").html("S/. " + (Math.random()*10).toFixed(2))
+      	$("#precio_pedrito").html("S/. " + (Math.random()*10).toFixed(2))
+      	$( ".opciones" ).show( "slide", { direction: "down" }, "slow" );
+
+      }
+    });
+  } );
+</script>
+</body>
+</html>
+
+
+
