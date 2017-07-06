@@ -163,9 +163,9 @@ h6 {
 
 .opciones,
 .cantidades,
-.carrito,
-.home,
-.usuario,
+.carrito, .checkout,
+.home_usuario, .home_comerciante,
+.perfil_usuario, .perfil_comerciante,
 .pedidos {
     margin-left: -15px;
     bottom: 0;
@@ -181,18 +181,21 @@ h6 {
 }
 
 .cantidades,
-.usuario,
-.carrito,
+.perfil_usuario, .perfil_comerciante,
+.carrito, .checkout,
 .pedidos {
     height: 100%;
-    z-index: 99999;
+    z-index: 10;
+}
+.checkout{
+	z-index: 20;
 }
 
-.usuario a {
+.perfil_usuario a, .perfil_comerciante a {
     color: #333!important;
 }
 
-.home {
+.home_usuario, .home_comerciante {
     background: rgb(30, 30, 30);
     color: white;
     height: 100%;
