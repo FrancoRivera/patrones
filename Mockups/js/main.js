@@ -44,8 +44,26 @@ $(document).ready(function() {
 						contador_notif_u +=1;
 			    }, 100)
 			}
+			 if (sessionStorage.getItem("notificacion_c") != null) {
+        	pushNotificationComerciante()
+        	$(".notificacion_comerciante").show("slide", {
+							        direction: "up"
+							    }, "fast");
+						
+        	 contador_notif_u = 0;
+        	    var not_u =setInterval(function() {
+			        if (contador_notif_u > 40) {
+			        	clearInterval(not_u)
+			        	$(".notificacion_comerciante").hide("slide", {
+							        direction: "up"
+							    }, "fast");
+						}
+						contador_notif_u +=1;
+			    }, 100)
+			}
 
     }, 100)
+
 })
 
 
@@ -60,12 +78,6 @@ function pushNotificationUsuario(){
 }
 
 function pushNotificationComerciante(){
-	obj = JSON.parse(sessionStorage.getItem("notificacion_c"))
-	var str= "<b>" + obj.vendedor + ": </b>"
-	for (var i = 0; i < obj.carrito.length; i++){
-		str += " " + obj.carrito[i].producto + ", "
-	}
-	$("#notif_usuario_content").html(str)
 	sessionStorage.removeItem("notificacion_c")
 }
 
@@ -143,7 +155,6 @@ $("#ingresar_usuario").click(function(){
 			$(".login_usuario").hide("slide", { direction: "left" }, "slow");
 
 			 $("#user").html(sessionStorage.getItem('user'));
-			 alert(sessionStorage.getItem('dni'))
 	        $("#u_dni").html(String(sessionStorage.getItem('dni')));
 	        $("#u_place").html(sessionStorage.getItem('place'));
 	        $("#u_phone").html(sessionStorage.getItem('phone'));
@@ -404,6 +415,7 @@ function ActualizarPedidos() {
         			<div class='col-xs-3'>" + pedidos[i].fecha + "</div> \
         			<div class='col-xs-4' > <span class='" + ((pedidos[i].estado == "Pendiente") ? "btn btn-sm btn-danger entregar_pedido' pk='"+i : "text-success" ) + "'>"+ pedidos[i].estado+ "</span></div></div>"
         $(".pedidos_usuario").append(str)
+        if (pedidos[i].vendedor == "Juanita")
          $(".l_pedidos_comerciante").append(str_com)
     }
     
@@ -447,7 +459,7 @@ $("#pagar_checkout").click(function() {
     ActualizarCarrito()
     ActualizarPedidos()
     sessionStorage.setItem("pedidos", JSON.stringify(pedidos))
-
+ 	sessionStorage.setItem("notificacion_c", "yolo")
     $("#cerrar_checkout").click()
 })
 
