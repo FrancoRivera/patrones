@@ -39,6 +39,19 @@ function validarLogin() {
 
     }
 
+       function Pedido(usuario, carrito, total) {
+        this.usuario = usuario;
+        this.carrito = carrito;
+        this.total = total;
+
+    }
+
+    $("input[name='tipopago']").click(function(){
+    	if($(this).val() == "Efectivo"){  $(".tarjeta_wrapper").hide("slide", { direction: "up" }, "slow") }
+    	else{ $(".tarjeta_wrapper").show("slide", { direction: "up" }, "slow"); $("#pagar_checkout").attr("disabled", "disabled");
+    	}
+
+    })
 
 function ActualizarCarrito() {
         var total = 0;
@@ -53,6 +66,8 @@ function ActualizarCarrito() {
         }
         $("#total_carrito").html("S./ " + total.toFixed(2))
         $("#carrito_total").html("S./ " + total.toFixed(2))
+                    	
+        $("#total_checkout").html("S./ " + total.toFixed(2))
         if (carrito.length > 0 ) $("#pagar_carrito").removeAttr("disabled");
         else{ $("#pagar_carrito").attr("disabled", "disabled");}
     }
@@ -129,6 +144,13 @@ function ActualizarCarrito() {
       	
       })
 
+      $("#pagar_checkout").click(function(){
+      	carrito 
+
+
+      	$("#cerrar_checkout").click()
+      })
+
     $("#hacer_pedidos").click(function() {
         $(".home_usuario").hide("slide", {
             direction: "left"
@@ -159,6 +181,10 @@ function ActualizarCarrito() {
 
     })
 
+    $(".payment-info").on("keydown keyup change", function(){
+    	if( $("#fecha_vencimiento").val().length > 6 && $("#ccv").val().length > 2 && $("#cc_number").val().length >18){ $("#pagar_checkout").removeAttr("disabled") }
+    	else{ $("#pagar_checkout").attr("disabled", "disabled")}
+    })
 
     $("#qty").keyup(function() {
         $("#sub_total").html((parseFloat($("#qty").val()) * parseFloat($("#tu_precio").html().substring(3))).toFixed(2))
