@@ -171,8 +171,8 @@ h6 {
 .cantidades,
 .carrito, .checkout,
 .home_usuario, .home_comerciante,
-.perfil_usuario, .perfil_comerciante,
-.pedidos, .pedidos_comerciante, .notificacion_usuario, .login_usuario, .registro_usuario, .hacer_pedido{
+.perfil_usuario, .perfil_comerciante, .reportes_comerciante, .resultado_reportes_comerciante, .pedido_detalle,
+.pedidos, .pedidos_comerciante, .notificacion_usuario, .login_usuario, .registro_usuario, .hacer_pedido, .notificacion_comerciante{
     margin-left: -15px;
     bottom: 0;
 	display:none;
@@ -185,7 +185,7 @@ h6 {
     background-image: url("../imgs/diagonals.png");
 }
 
-.notificacion_usuario{
+.notificacion_usuario, .notificacion_comerciante{
 	top: 0;
 height: 100px;
 z-index: 99999999;
@@ -200,12 +200,12 @@ z-index: 99999999;
 }
 .cantidades,
 .perfil_usuario, .perfil_comerciante,
-.carrito, .checkout,
-.pedidos, .pedidos_comerciante,  .login_usuario, .registro_usuario{
+.carrito, .checkout, .pedido_detalle,
+.pedidos, .pedidos_comerciante,  .login_usuario, .registro_usuario, .reportes_comerciante, .resultado_reportes_comerciante{
     height: 100%;
     z-index: 10;
 }
-.checkout{
+.checkout, .resultado_reportes_comerciante,{
 	z-index: 20;
 }
 .login_usuario{

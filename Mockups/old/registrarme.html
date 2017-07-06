@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel ="stylesheet" href="css/my_style.css">
+</head>
+<body>
+<div class="margin_30"></div>
+<div class="aplicacion_wrapper" id="pantalla">
+
+
+<div class="container application_resize">    <div class="row">    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div></div>   </div>
+
+<div id="content">
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8"><h3>Registrate!</h3></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Usuario o Email*:</label><input type="text" id="user" class="form-control" placeholder="Usuario o Email" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="dni">DNI*:</label><input type="text" id="dni" class="form-control" placeholder="DNI" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="usuario">Telefono*:</label><input type="text" id="phone" class="form-control" placeholder="Telefono" required="required"></div>
+</div>
+<div class="margin_10"></div>
+<div class="row">
+	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><label for="place">Distrito*:</label><select id="place" class="form-control" required="required">
+		<option value="Ate">Ate </option>
+		<option value="Cercado de Lima"> Cercado de Lima </option>
+		<option value="Jesus Maria"> Jesus Maria </option>
+		<option value="Magdalena del Mar"> Magdalena del Mar </option>
+		<option value="Miraflores"> Miraflores </option>
+		<option value="Pueblo Libre"> Pueblo Libre </option>
+		<option value="San Isidro"> San Isidro </option>
+		<option value="Santiago de Surco"> Santiago de Surco</option>
+		<option value="La Molina"> La Molina </option>
+		</select>
+	</div>
+</div>
+<div class="margin_10"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="password">Contraseña:*</label><input type="password" id="password" class="form-control" placeholder="Contraseña" required="required"></div></div>
+
+<div class="margin_10"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="password">Repite Contraseña:*</label><input type="password"  id="r_password" class="form-control" placeholder="Repite Contraseña" required="required"></div></div>
+
+
+<div class="margin_10"></div>
+<div class="row"> 
+<div class="col-sm-2"></div><div class="col-sm-8"><span class="text-danger" id="error">*Campos Obligatorios</span>
+</div></div>
+<div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><button id="registrarme" class="btn btn-primary form-control">Registrate</button></div></div>
+<div class="margin_30"></div><div class="row">	<div class="col-sm-3"></div>	<div class="col-sm-6"><a href="login.html"><button class="btn btn-danger form-control">Ya tengo cuenta</button></a></div></div>
+
+</div>
+
+
+ </div>
+
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"> </script>
+ 
+<script>
+	$("#registrarme").click(function(){
+		if ($("#user").val().length > 0 && $("#dni").val().length > 0 && $("#password").val().length > 0 && $("#r_password").val().length > 0){
+		sessionStorage.setItem('user', $("#user").val())
+		sessionStorage.setItem('password', $("#password").val())
+		sessionStorage.setItem('dni', $("#dni").val())
+		sessionStorage.setItem('place', $("#place").val())
+		sessionStorage.setItem('phone', $("#phone").val())
+		window.location.href = "login.html"
+		}
+		else{
+			$("#error").html("Debes completar todos los campos!")
+
+		}
+	})
+</script>
+</body>
+</html>

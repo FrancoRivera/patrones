@@ -10,9 +10,9 @@ function validarLogin() {
 $(document).ready(function() {
     if (validarLogin()) {
         $("#user").html(sessionStorage.getItem('user'));
-        $("#dni").html(sessionStorage.getItem('dni'));
-        $("#place").html(sessionStorage.getItem('place'));
-        $("#phone").html(sessionStorage.getItem('phone'));
+        $("#u_dni").html(sessionStorage.getItem('dni'));
+        $("#u_place").html(sessionStorage.getItem('place'));
+        $("#u_phone").html(sessionStorage.getItem('phone'));
 
         $("#greeting_usuario").html("Hola, " +sessionStorage.getItem('user') )
     }
@@ -57,6 +57,16 @@ function pushNotificationUsuario(){
 	}
 	$("#notif_usuario_content").html(str)
 	sessionStorage.removeItem("notificacion_u")
+}
+
+function pushNotificationComerciante(){
+	obj = JSON.parse(sessionStorage.getItem("notificacion_c"))
+	var str= "<b>" + obj.vendedor + ": </b>"
+	for (var i = 0; i < obj.carrito.length; i++){
+		str += " " + obj.carrito[i].producto + ", "
+	}
+	$("#notif_usuario_content").html(str)
+	sessionStorage.removeItem("notificacion_c")
 }
 
 var carrito = [];
@@ -105,6 +115,16 @@ function Pedido(usuario, carrito, vendedor) {
     this.estado = "Pendiente"
 }
 
+$(".ver_reportes").click(function(){
+	$(".reportes_comerciante").show(
+		"slide", { direction: "bottom" }, "slow");
+
+})
+
+$( function() {
+    $( "#reporte_fecha_i" ).datepicker({dateFormat: "dd/mm/yy"});
+     $( "#reporte_fecha_f" ).datepicker({dateFormat: "dd/mm/yy"});
+  } );
 
 $("input[name='tipopago']").click(function() {
     if ($(this).val() == "Efectivo") { $(".tarjeta_wrapper").hide("slide", { direction: "up" }, "slow");
@@ -119,33 +139,52 @@ $("#ingresar_usuario").click(function(){
 		usuario = sessionStorage.getItem('user')
 		password = sessionStorage.getItem('password')
 
-		if($.trim($("#user").val()) == $.trim(usuario)  && $.trim($("#password").val()) == $.trim(password)  ){
-			$(".login_usuario").hide()
+		if($.trim($("#user_log").val()) == $.trim(usuario)  && $.trim($("#password_log").val()) == $.trim(password)  ){
+			$(".login_usuario").hide("slide", { direction: "left" }, "slow");
+
+			 $("#user").html(sessionStorage.getItem('user'));
+			 alert(sessionStorage.getItem('dni'))
+	        $("#u_dni").html(String(sessionStorage.getItem('dni')));
+	        $("#u_place").html(sessionStorage.getItem('place'));
+	        $("#u_phone").html(sessionStorage.getItem('phone'));
+
+	        $("#greeting_usuario").html("Hola, " +sessionStorage.getItem('user') )
 		}
 		else{
-			$("#error").html("El usuario y contraseña no son validos!")
+			$("#error_login").html("El usuario y contraseña no son validos!")
 		}
 
 		
 	})
 
+$("#registro_usuario").click(function(){
+	$("#user_reg").val("Franco")
+	$("#dni").val("07705856")
+	$("#phone").val("998112591")
+	$("#password_reg").val("1234")
+	$("#r_password").val("1234")
+})
 $("#registrarme_usuario").click(function() {
-        if ($("#user").val().length > 0 && $("#dni").val().length > 0 && $("#password").val().length > 0 && $("#r_password").val().length > 0) {
-            sessionStorage.setItem('user', $("#user").val())
-            sessionStorage.setItem('password', $("#password").val())
+        if ($("#user_reg").val().length > 0 && $("#dni").val().length > 0 && $("#password_reg").val().length > 0 && $("#r_password").val().length > 0) {
+            sessionStorage.setItem('user', $("#user_reg").val())
+            sessionStorage.setItem('password', $("#password_reg").val())
             sessionStorage.setItem('dni', $("#dni").val())
             sessionStorage.setItem('place', $("#place").val())
             sessionStorage.setItem('phone', $("#phone").val())
-            window.location.href = "login.html"
+            $("#cerrar_registro").click()
         } else {
-            $("#error").html("Debes completar todos los campos!")
+            $("#error_registro").html("Debes completar todos los campos!")
 
         }
     })
 function ActualizarCarrito() {
     var total = 0;
-    $(".carrito_lista").html("<div class='margin_30'></div>Tu carrito esta vacío :(")
-    $(".productos_carrito").html("<div class='margin_30'></div>Tu carrito esta vacío :(")
+    var defecto = "<div class='margin_30'></div>Tu carrito esta vacío :("
+    if (carrito.length > 0)  defecto = ""
+
+    $(".carrito_lista").html(defecto)
+    $(".productos_carrito").html(defecto)
+    
     for (var i = 0; i < carrito.length; i++) {
         var str = "<div class='row'><div class='col-xs-1'></div><div class='col-xs-5'>" + carrito[i].producto + "</div><div class='col-xs-3'> S./ " + carrito[i].subtotal + "</div></div>"
         var str_prod = "<div class='margin_10'></div><div class='row'><div class='col-xs-1'></div><div class='col-xs-2'>" + carrito[i].vendedor + "</div><div class='col-xs-3'>" + carrito[i].producto + "</div><div class='col-xs-2'>" + carrito[i].qty + "</div><div class='col-xs-2'>" + carrito[i].subtotal + "</div><div class='col-xs-1'> <button type='button' class='btn btn-danger remove_item' pk='" + i + "'><span class='glyphicon glyphicon-remove'></span></button> </div></div>"
@@ -160,6 +199,8 @@ function ActualizarCarrito() {
     if (carrito.length > 0) $("#pagar_carrito").removeAttr("disabled");
     else { $("#pagar_carrito").attr("disabled", "disabled"); }
 }
+
+
 $("#ver_registro").click(function(){
 	$(".registro_usuario").show("slide", {
         direction: "left"
@@ -252,6 +293,61 @@ $("#pagar_carrito").click(function() {
     );
 
 
+})
+function stringToDate(_date,_format,_delimiter)
+{
+            var formatLowerCase=_format.toLowerCase();
+            var formatItems=formatLowerCase.split(_delimiter);
+            var dateItems=_date.split(_delimiter);
+            var monthIndex=formatItems.indexOf("mm");
+            var dayIndex=formatItems.indexOf("dd");
+            var yearIndex=formatItems.indexOf("yyyy");
+            var month=parseInt(dateItems[monthIndex]);
+            month-=1;
+            var formatedDate = new Date(dateItems[yearIndex],month,dateItems[dayIndex]);
+            return formatedDate;
+}
+$(".form_reporte").on("keydown keyup change", function(){
+	f_inicio = $("#reporte_fecha_i").val()
+	f_fin = $("#reporte_fecha_f").val()
+	producto = $("#reporte_producto").val()
+	if( String(f_inicio).length > 6 &&
+		  String(f_fin).length > 6 &&
+		   String(producto).length > 3 ){
+		$("#buscar_reporte").removeAttr("disabled")
+	}
+	else{$("#buscar_reporte").attr("disabled", "disabled")}
+})
+
+
+$("#buscar_reporte").click(function(){
+	$(".resultados_reporte").html("")
+	f_inicio = $("#reporte_fecha_i").val()
+	f_fin = $("#reporte_fecha_f").val()
+	producto = $("#reporte_producto").val()
+	for (var i = pedidos.length - 1; i >= 0; i--) {
+		if (pedidos[i].vendedor == "Juanita" 
+			&& stringToDate(pedidos[i].fecha, "mm/dd/yyyy", "/") > stringToDate(f_inicio, "dd/mm/yyyy", "/")
+		 	&& stringToDate(pedidos[i].fecha, "mm/dd/yyyy", "/") < stringToDate(f_fin, "dd/mm/yyyy", "/")){
+			for (var j= 0; j < pedidos[i].carrito.length; j++){
+				if (pedidos[i].carrito[j].producto == producto){
+					var str = '<div class="row"> \
+                                    <div class="col-xs-2"></div> \
+                                    <div class="col-xs-3"> \
+                                        <h4 class="faded">' + pedidos[i].numeroOC+ '</h4></div> \
+                                    <div class="col-xs-3"> \
+                                        <h4 class="faded">' + pedidos[i].carrito[j].qty+ '</h4></div> \
+                                </div>'
+					$(".resultados_reporte").append(str)
+				}
+			}
+
+
+		}
+	}
+	$(".resultado_reportes_comerciante").show("slide", {
+        direction: "down"
+    }, "slow");
 })
 $("#borrar_carrito").click(function(){
 	sessionStorage.removeItem("carrito")
@@ -468,6 +564,12 @@ $(function() {
                 direction: "down"
             }, "slow");
 
+        }
+    });
+     $("#reporte_producto").autocomplete({
+        source: availableTags,
+        select: function(event, ui) {
+           $(".form_reporte").keydown()
         }
     });
 });

@@ -1,0 +1,69 @@
+ <!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel ="stylesheet" href="css/my_style.css">
+
+</head>
+<body>
+<div class="margin_30"></div>
+<div class="aplicacion_wrapper" id="pantalla">
+
+
+<div class="container application_resize"> 
+
+   <div class="row">    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div></div>   </div>
+
+<div id="content">
+	<div class="margin_30"></div>
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"><h2>Tu Mercado!</h2></div>
+	</div>
+	<div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="usuario">Usuario o Email:</label><input type="text" id="user" class="form-control" placeholder="Usuario o Email"></div></div><div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	<div class="col-sm-8"><label for="usuario">Contraseña:</label><input type="password" id="password" class="form-control" placeholder="Contraseña"></div></div><div class="margin_30"></div>
+	<div class="row"> 
+	<div class="col-sm-2"></div><div class="col-sm-8"><span class="text-danger" id="error"></span>
+	</div></div>
+	<div class="margin_30"></div><div class="row">	<div class="col-sm-2"></div>	
+	<div class="col-sm-8"><button id="ingresar" class="btn btn-primary form-control">Ingresar</button>
+
+	</div>
+	</div>
+
+
+
+	<div class="margin_30"></div><div class="row">	<div class="col-sm-3"></div>	<div class="col-sm-6"><a href="registrarme.html"><button class="btn btn-danger form-control">Registrarme</button></a></div></div>
+	
+	<div class="footer_nav"></div>  
+
+
+</div>
+
+ </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"> </script>
+ 
+<script>
+	$("#ingresar").click(function(){
+		usuario = sessionStorage.getItem('user')
+		password = sessionStorage.getItem('password')
+
+		if($.trim($("#user").val()) == $.trim(usuario)  && $.trim($("#password").val()) == $.trim(password)  ){
+			window.location.href = "hacer_pedido.html"
+		}
+		else{
+			$("#error").html("El usuario y contraseña no son validos!")
+		}
+
+		
+	})
+</script>
+</body>
+</html>
+
