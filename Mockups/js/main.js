@@ -1,5 +1,5 @@
 function validarLogin() {
-    if (sessionStorage.getItem('user') != null)
+    if (sessionStorage.getItem('logged') != null)
         return true;
     else {
         return false
@@ -8,14 +8,20 @@ function validarLogin() {
 
 
 $(document).ready(function() {
-
     if (validarLogin()) {
-
-
         $("#user").html(sessionStorage.getItem('user'));
         $("#dni").html(sessionStorage.getItem('dni'));
         $("#place").html(sessionStorage.getItem('place'));
         $("#phone").html(sessionStorage.getItem('phone'));
+
+        $("#greeting_usuario").html("Hola, " +sessionStorage.getItem('user') )
+    }
+    else{
+    	$(".login_usuario").show()
+    	if(sessionStorage.getItem('user') == null){
+    		$(".registro_usuario").show()
+    	}
+    	
     }
     contador_notif_u = 0;
 
@@ -109,10 +115,37 @@ $("input[name='tipopago']").click(function() {
 
 })
 
+$("#ingresar_usuario").click(function(){
+		usuario = sessionStorage.getItem('user')
+		password = sessionStorage.getItem('password')
+
+		if($.trim($("#user").val()) == $.trim(usuario)  && $.trim($("#password").val()) == $.trim(password)  ){
+			$(".login_usuario").hide()
+		}
+		else{
+			$("#error").html("El usuario y contraseña no son validos!")
+		}
+
+		
+	})
+
+$("#registrarme_usuario").click(function() {
+        if ($("#user").val().length > 0 && $("#dni").val().length > 0 && $("#password").val().length > 0 && $("#r_password").val().length > 0) {
+            sessionStorage.setItem('user', $("#user").val())
+            sessionStorage.setItem('password', $("#password").val())
+            sessionStorage.setItem('dni', $("#dni").val())
+            sessionStorage.setItem('place', $("#place").val())
+            sessionStorage.setItem('phone', $("#phone").val())
+            window.location.href = "login.html"
+        } else {
+            $("#error").html("Debes completar todos los campos!")
+
+        }
+    })
 function ActualizarCarrito() {
     var total = 0;
-    $(".carrito_lista").html("")
-    $(".productos_carrito").html("")
+    $(".carrito_lista").html("<div class='margin_30'></div>Tu carrito esta vacío :(")
+    $(".productos_carrito").html("<div class='margin_30'></div>Tu carrito esta vacío :(")
     for (var i = 0; i < carrito.length; i++) {
         var str = "<div class='row'><div class='col-xs-1'></div><div class='col-xs-5'>" + carrito[i].producto + "</div><div class='col-xs-3'> S./ " + carrito[i].subtotal + "</div></div>"
         var str_prod = "<div class='margin_10'></div><div class='row'><div class='col-xs-1'></div><div class='col-xs-2'>" + carrito[i].vendedor + "</div><div class='col-xs-3'>" + carrito[i].producto + "</div><div class='col-xs-2'>" + carrito[i].qty + "</div><div class='col-xs-2'>" + carrito[i].subtotal + "</div><div class='col-xs-1'> <button type='button' class='btn btn-danger remove_item' pk='" + i + "'><span class='glyphicon glyphicon-remove'></span></button> </div></div>"
@@ -127,7 +160,17 @@ function ActualizarCarrito() {
     if (carrito.length > 0) $("#pagar_carrito").removeAttr("disabled");
     else { $("#pagar_carrito").attr("disabled", "disabled"); }
 }
+$("#ver_registro").click(function(){
+	$(".registro_usuario").show("slide", {
+        direction: "left"
+    }, "slow");
+})
 
+$("#cerrar_registro").click(function(){
+	$(".registro_usuario").hide("slide", {
+        direction: "left"
+    }, "slow");
+})
 $("#cerrar_carrito").click(function() {
     $(".carrito").hide("slide", {
         direction: "down"
@@ -210,6 +253,46 @@ $("#pagar_carrito").click(function() {
 
 
 })
+$("#borrar_carrito").click(function(){
+	sessionStorage.removeItem("carrito")
+	carrito = []
+	ActualizarCarrito()
+})
+$("#llenarCCInfo").click(function(){
+	$("#cc_number").val("2032 2320 0565 9993")
+	$("#ccv").val("332")
+	$("#fecha_vencimiento").val("06/2019")
+	$("#fecha_vencimiento").keyup()
+})
+$("#ingresarProductosCarrito").click(function(){
+	for (var i = 0; i < 10; i++){
+		if (Math.random()>0.33){
+			vendedor = "Luis"
+			if (Math.random()>0.66)
+				vendedor = "Pedrito"
+		}
+		else{
+			vendedor ="Juanita"
+		}
+		qty = parseFloat(Math.random()*10).toFixed(2)
+		producto = availableTags[parseInt(Math.random()*14)]
+		precio = parseFloat(Math.random()*10).toFixed(2)
+		subtotal = (qty * precio).toFixed(2);
+		nueva_compra = new Producto(vendedor, qty, producto, precio, subtotal);
+    	carrito.push(nueva_compra)
+	}
+    sessionStorage.setItem("carrito", JSON.stringify(carrito))
+    ActualizarCarrito()
+})
+
+
+$("#reiniciarPedidos").click(function(){
+	 for (var i = 0; i < pedidos.length; i++) {
+		pedidos[i].estado = "Pendiente"
+	    sessionStorage.setItem("pedidos", JSON.stringify(pedidos))
+	}
+	ActualizarPedidos()
+})
 
 function ActualizarPedidos() {
     $(".pedidos_usuario").html("")
@@ -224,8 +307,6 @@ function ActualizarPedidos() {
         			<div class='col-xs-3'>" + pedidos[i].numeroOC + "</div> \
         			<div class='col-xs-3'>" + pedidos[i].fecha + "</div> \
         			<div class='col-xs-4' > <span class='" + ((pedidos[i].estado == "Pendiente") ? "btn btn-sm btn-danger entregar_pedido' pk='"+i : "text-success" ) + "'>"+ pedidos[i].estado+ "</span></div></div>"
-        /*pedidos[i].estado = "Pendiente"
-        sessionStorage.setItem("pedidos", JSON.stringify(pedidos)) */// reinicia pedidos
         $(".pedidos_usuario").append(str)
          $(".l_pedidos_comerciante").append(str_com)
     }
@@ -235,7 +316,7 @@ function ActualizarPedidos() {
 $(document).on("click", ".entregar_pedido", function(){
 	var i = $(this).attr("pk")
 	 if (i > -1) {
-        pedidos[i].estado = "Entregado"
+        pedidos[i].estado = "Listo"
         sessionStorage.setItem("pedidos", JSON.stringify(pedidos))
         sessionStorage.setItem("notificacion_u", JSON.stringify(pedidos[i]))
         ActualizarPedidos()
@@ -357,9 +438,9 @@ $("#cancelar").click(function() {
 })
 
 usuario = sessionStorage.getItem('user')
-
+var availableTags = []
 $(function() {
-    var availableTags = [
+     availableTags = [
         "Manzanas",
         "Peras",
         "Platanos",

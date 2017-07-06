@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 body {
-    background: #cc5050;
+    background: #97ccc8;;
     color: white;
     text-align: center;
+    	background-image: url("../imgs/crissxcross.png");
+background-size: 100px;
 }
 
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 .h1,
 .h2,
 .h3,
@@ -166,16 +172,17 @@ h6 {
 .carrito, .checkout,
 .home_usuario, .home_comerciante,
 .perfil_usuario, .perfil_comerciante,
-.pedidos, .pedidos_comerciante, .notificacion_usuario{
+.pedidos, .pedidos_comerciante, .notificacion_usuario, .login_usuario, .registro_usuario, .hacer_pedido{
     margin-left: -15px;
     bottom: 0;
-    display: none;
+	display:none;
     background: white;
     color: black;
     position: absolute;
     width: 100%;
-overflow-y: inherit;
+	overflow-y: inherit;
     overflow-x: inherit;
+    background-image: url("../imgs/diagonals.png");
 }
 
 .notificacion_usuario{
@@ -186,27 +193,39 @@ z-index: 99999999;
 .opciones {
     height: 300px;
 }
-
+.hacer_pedido{
+	display: block;
+	z-index: 0;
+	height:100%;
+}
 .cantidades,
 .perfil_usuario, .perfil_comerciante,
 .carrito, .checkout,
-.pedidos, .pedidos_comerciante {
+.pedidos, .pedidos_comerciante,  .login_usuario, .registro_usuario{
     height: 100%;
     z-index: 10;
 }
 .checkout{
 	z-index: 20;
 }
+.login_usuario{
+	z-index: 30;
+}
+.registro_usuario{
+	z-index: 40;
+}
 
 .perfil_usuario a, .perfil_comerciante a {
     color: #333!important;
 }
 
-.home_usuario, .home_comerciante {
-    background: rgb(30, 30, 30);
+.home_usuario, .home_comerciante, .hacer_pedido {
+    background:rgb(31, 62, 44);
     color: white;
     height: 100%;
     display: block;
+    	background-size: 400px;
+background-image: url("../imgs/dark-mosaic.png");
 }
 
 
