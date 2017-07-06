@@ -1,277 +1,507 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <meta charset="utf-8">
+
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="css/jquery-ui.min.css">
-<link rel ="stylesheet" href="css/my_style.css">
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/my_style.css">
 </head>
+
 <body>
-<div class="margin_30"></div>
-<div class="aplicacion_wrapper" id="pantalla">
-
-
-<div class="container application_resize"> 
-
-   <div class="row">    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div></div>   </div>
-
-<div id="content">
-
-<!-- begining of plantilla-->
-
-<div class="margin_30"></div>
-<div class="row">
-	<div class="col-sm-1"></div>
-	<div class="col-sm-1"><a href="home.html"><span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a></div>
-	<div class="col-sm-8"><h3>Realizar un Pedido!</h3></div>
-</div>
-
-<div class="margin_30"></div>
-<div class="row">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-8"><label for="">Escribe lo que buscas</label><input type="text" name="" id="producto" class="form-control"></div>
-</div>
-
-<div class="margin_30"></div>
-<div class="row">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-8"><button type="button" id="buscar" class="btn btn-primary form-control">Buscar</button></div>
-</div>
-
-<div class="margin_30"></div>
-<div class="row">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-8"><span class="h4">Tu carrito</span> &nbsp <button class="btn btn-danger">Editar</button></div>
-</div>
-<div class="margin_10"></div>
-<div class="row carrito_lista">
-</div>
-<div class="margin_30"></div>
-<div class="row">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-4"><h4>Total: </h4></div><div class="col-sm-4" ><h4 id="total_carrito">S/. 0.00</h4></div>
-</div>
-<div class="margin_30"></div>
-
-<div class="opciones">
-	<div class="row">
-		<div class="col-sm-2"></div>
-		<div class="col-sm-8"><h4 class="faded">Marca una opcion!</h4></div>
-	</div>
-	<div class="row">
-	<div class="col-sm-1"></div>
-		<div class="col-sm-3 faded">Casero</div>
-		<div class="col-sm-3 faded" >Precio/kg</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3"><span class="letra_20">Juanita!</span></div>
-		<div class="col-sm-3 letra_20" id="precio_juanita">Precio</div>
-		<div class="col-sm-4"><button type="button" class="btn btn-success comprar_juanita" >Comprar</button></div>
-	</div>
+    <div class="margin_30"></div>
+    <span class="h1">Usuario</span>
+    <div class="aplicacion_wrapper" id="pantalla">
+        <div class="container application_resize">
+            <div class="row">
+                <div class="col-md-12" style="background-color:black;color:white">
+                    <div class="row text-center">
+                        <div class="col-xs-4">Movistar</div>
+                        <div class="col-xs-4">10:05</div>
+                        <div class="col-xs-4">92%</div>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <!-- begining of plantilla-->
+                <div class="margin_30"></div>
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-1"><a href="#" class="ver_home"><span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a></div>
+                    <div class="col-xs-8">
+                        <h3>Realizar un Pedido!</h3></div>
+                </div>
+                <div class="margin_30"></div>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8">
+                        <label for="">Escribe lo que buscas</label>
+                        <input type="text" name="" id="producto" class="form-control">
+                    </div>
+                </div>
+                <div class="margin_30"></div>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8">
+                        <button type="button" id="buscar" class="btn btn-primary form-control">Buscar</button>
+                    </div>
+                </div>
+                <div class="margin_30"></div>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8"><span class="h4">Tu carrito</span> &nbsp
+                        <button class="btn btn-danger" class="ver_carrito">Editar</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="margin_10"></div>
+                <div class="row carrito_lista">
+                </div>
+                <div class="margin_30"></div>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-4">
+                        <h4>Total: </h4></div>
+                    <div class="col-xs-4">
+                        <h4 id="total_carrito">S/. 0.00</h4></div>
+                </div>
+                <div class="margin_30"></div>
+                <div class="opciones">
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <h4 class="faded">Marca una opcion!</h4></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3 faded">Casero</div>
+                        <div class="col-xs-3 faded">Precio/kg</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20">Juanita!</span></div>
+                        <div class="col-xs-3 letra_20" id="precio_juanita">Precio</div>
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-success comprar_juanita">Comprar</button>
+                        </div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20">Pedrito!</span></div>
+                        <div class="col-xs-3 letra_20" id="precio_pedrito"><span class="">Precio!</span></div>
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-success comprar_pedrito">Comprar</button>
+                        </div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20">Luis</span></div>
+                        <div class="col-xs-3 letra_20" id="precio_luis">Precio</div>
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-success comprar_luis">Comprar</button>
+                        </div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <button type="button" id="cancelar" class="btn btn-danger form-control">Cancelar </button>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="cantidades">
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <h4 class="faded">Selecciona la cantidad!</h4></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3 faded">Casero</div>
+                        <div class="col-xs-4 faded">Producto</div>
+                        <div class="col-xs-3 faded">Precio/kg</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20" id="tu_casero">Juanita!</span></div>
+                        <div class="col-xs-4 letra_20" id="tu_producto">Producto</div>
+                        <div class="col-xs-3 letra_20" id="tu_precio">10.05</div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20">QTY:</span></div>
+                        <div class="col-xs-6">
+                            <input type="" name="" id="qty" class="form-control" placeholder="QTY">
+                        </div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20">Total</span></div>
+                        <div class="col-xs-3 letra_20">S./</div>
+                        <div class="col-xs-3 letra_20" id="sub_total">0.00</div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <button type="button" class="btn btn-success form-control" id="add_2_cart"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp &nbsp Agregar al Carrito</button>
+                        </div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <button type="button" id="cancelar_cantidades" class="btn btn-danger form-control">Cancelar </button>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="carrito">
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <h4 class="faded">Tu carrito!</h4></div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-2 faded">Casero</div>
+                        <div class="col-xs-3 faded">Producto</div>
+                        <div class="col-xs-2 faded">Qty</div>
+                        <div class="col-xs-3 faded">Subtotal</div>
+                    </div>
+                    <div class="productos_carrito"></div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-3"><span class="letra_20">Total</span></div>
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-5 letra_20" id="carrito_total">0.00</div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <button type="button" id="" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <button type="button" id="cerrar_carrito" class="btn btn-danger form-control">Cerrar Carrito </button>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="home">
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <h3 id="greeting">Hola!</h3></div>
+                    </div>
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <a href="#" id="hacer_pedidos">
+                            <div class="col-xs-4 text-center homeslab hs_1"><span class="glyphicon glyphicon-plus"></span>
+                                <h4>Hacer un  Pedido</h4></div>
+                        </a>
+                        <a href="#" class="ver_carrito">
+                            <div class="col-xs-4 text-center homeslab hs_2"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span>
+                                <h4>Ver mi Carrito</h4></div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <a href="#" class="ver_pedidos">
+                            <div class="col-xs-4 text-center homeslab hs_3"><span class="glyphicon glyphicon glyphicon-th-list"></span>
+                                <h4> Lista De Pedidos</h4></div>
+                        </a>
+                        <a id="ver_user" href="#">
+                            <div class="col-xs-4 text-center homeslab hs_4"><span class="glyphicon glyphicon-user"></span>
+                                <h4>Ver Mi Perfil!</h4></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="usuario">
+                    <div class="margin_30"></div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-1">
+                            <a class="ver_home" href="#">
+                                <span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a>
+                        </div>
+                    </div>
+                    <div class="profile_pic"><span class="glyphicon glyphicon-user"></span></div>
+                    <div class="margin_30"></div>
+                    <h3 class="text-center"><span id="user">Usuario</span></h3>
+                    <h3 class="text-center"><span class="h5">DNI:</span>&nbsp &nbsp<span id="dni">dni</span></h3>
+                    <h3 class="text-center"><span class="h5">Telefono:</span>&nbsp &nbsp<span id="phone">Phone</span></h3>
+                    <div class="margin_10"></div>
+                    <h4 class="text-center" id="place"> Lugar</h2>
 		<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3"><span class="letra_20">Pedrito!</span></div>
-		<div class="col-sm-3 letra_20" id="precio_pedrito"><span class="">Precio!</span></div>
-		<div class="col-sm-4"><button type="button" class="btn btn-success comprar_pedrito" >Comprar</button></div>
-	</div>
-		<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3"><span class="letra_20">Luis</span></div>
-		<div class="col-sm-3 letra_20" id="precio_luis">Precio</div>
-		<div class="col-sm-4"><button type="button" class="btn btn-success comprar_luis" >Comprar</button></div>
-	</div>
-			<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-2"></div>
-		<div class="col-sm-8"><button type="button" id="cancelar" class="btn btn-danger form-control">Cancelar </button></h4></div>
-	</div>
-</div>
-
-<div class="cantidades">
-	<div class="row">
-		<div class="col-sm-2"></div>
-		<div class="col-sm-8"><h4 class="faded">Selecciona la cantidad!</h4></div>
-	</div>
-	<div class="row">
-	<div class="col-sm-1"></div>
-		<div class="col-sm-3 faded">Casero</div>
-		<div class="col-sm-4 faded">Producto</div>
-		<div class="col-sm-3 faded" >Precio/kg</div>
+		<a href="login.html" title=""><button type="button" id="cerrar_sesion" class="btn btn-danger form-control">Cerrar Sesion</button></a>
 	</div>
 
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3"><span class="letra_20" id="tu_casero">Juanita!</span></div>
-		<div class="col-sm-4 letra_20" id="tu_producto">Producto</div>
-		<div class="col-sm-3 letra_20" id="tu_precio">10.05</div>
-	</div>
-		<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3"><span class="letra_20">QTY:</span></div>
-		<div class="col-sm-6"><input type="" name="" id="qty" class="form-control" placeholder="QTY"></div>
-	</div>
-		<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-3"><span class="letra_20">Total</span></div>
-		<div class="col-sm-3 letra_20">S./</div>
-		<div class="col-sm-3 letra_20" id="sub_total">0.00</div>
-	</div>
-			<div class="margin_30"></div>
 
-	<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-2"></div>
-		<div class="col-sm-8"><button type="button" class="btn btn-success form-control" id="add_2_cart" ><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp &nbsp Agregar al Carrito</button></div>
-	</div>
-			<div class="margin_30"></div>
-	<div class="row">
-		<div class="col-sm-2"></div>
-		<div class="col-sm-8"><button type="button" id="cancelar_cantidades" class="btn btn-danger form-control">Cancelar </button></h4></div>
-	</div>
+	<div class="pedidos">
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-8"><h4 class="faded">Tus Pedidos!</h4></div>
+            </div>
+            <div class="margin_30"></div>
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-2 faded">Casero</div>
+                <div class="col-xs-3 faded">Total</div>
+                <div class="col-xs-2 faded">Estado</div>
+            </div>
+            <div class="productos_carrito"></div>
+            <div class="margin_30"></div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-3"><span class="letra_20">Total</span></div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-5 letra_20" id="carrito_total">0.00</div>
+            </div>
+            <div class="margin_30"></div>
+            <div class="margin_30"></div>
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <button type="button" id="" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
+                    </h4>
+                </div>
+            </div>
+            <div class="margin_30"></div>
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <button type="button" id="cerrar_pedidos" class="btn btn-danger form-control">Cerrar Pedidos </button>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end of plantilla-->
+    </div>
+    </div>
+    <script src="js/jquery.js">
+    </script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script>
+    $(document).ready(function() {
 
-</div>
-
-
-	<!-- end of plantilla-->
-	
-</div>
-
- </div>
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"> </script>
- <script
-  src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
-
-<script>
-
-var carrito = [];
-$(document).ready(function(){
-	if(sessionStorage.getItem("carrito") != null)
-		carrito = JSON.parse(sessionStorage.getItem("carrito"))
-	console.log(carrito)
-	ActualizarCarrito()
-})
-
-function Producto(qty, producto, precio, subtotal) {
-	this.qty = qty;
-	this.producto = producto;
-	this.precio = precio;
-	this.subtotal = subtotal; 
-
-}
+        if (validarLogin()) {
 
 
-function ActualizarCarrito(){
-	var total = 0;
-	$(".carrito_lista").html("")
-	for (var i= 0; i < carrito.length; i++ ){
-		var str = "<div class='row'><div class='col-sm-3'></div><div class='col-md-3'>"+ carrito[i].producto + "</div><div class='col-md-3'> S./ "+ carrito[i].subtotal + "</div></div>"
-		$(".carrito_lista").append(str)
-		total += parseFloat(carrito[i].subtotal)
-	}
-	$("#total_carrito").html("S./ " + total)
-}
+            $("#user").html(sessionStorage.getItem('user'));
+            $("#dni").html(sessionStorage.getItem('dni'));
+            $("#place").html(sessionStorage.getItem('place'));
+            $("#phone").html(sessionStorage.getItem('phone'));
+        }
+
+        mi_id = setInterval(function() {
+            if (sessionStorage.getItem("yolo") != null) alert("yes")
+            else {
+                console.log("nah")
+            }
+        }, 100)
+    })
+
+    var carrito = [];
+    $(document).ready(function() {
+        if (sessionStorage.getItem("carrito") != null)
+            carrito = JSON.parse(sessionStorage.getItem("carrito"))
+        ActualizarCarrito()
+    })
+
+    function Producto(casero, qty, producto, precio, subtotal) {
+        this.casero = casero;
+        this.qty = qty;
+        this.producto = producto;
+        this.precio = precio;
+        this.subtotal = subtotal;
+
+    }
 
 
-$("#add_2_cart").click(function(){
-	qty = parseFloat($("#qty").val())
-	producto =  $("#tu_producto").html()
-	precio = parseFloat($("#tu_precio").html().substring(3))
-	subtotal = parseFloat($("#sub_total").html())
-	nueva_compra = new Producto(qty, producto, precio, subtotal);
-	carrito.push(nueva_compra)
-	sessionStorage.setItem("carrito", JSON.stringify(carrito))
 
-	$("#cancelar_cantidades").click();
-	$("#cancelar").click();
-	ActualizarCarrito();
+    function ActualizarCarrito() {
+        var total = 0;
+        $(".carrito_lista").html("")
+        $(".productos_carrito").html("")
+        for (var i = 0; i < carrito.length; i++) {
+            var str = "<div class='row'><div class='col-xs-1'></div><div class='col-xs-5'>" + carrito[i].producto + "</div><div class='col-xs-3'> S./ " + carrito[i].subtotal + "</div></div>"
+            var str_prod = "<div class='margin_10'></div><div class='row'><div class='col-md-1'></div><div class='col-xs-2'>" + carrito[i].casero + "</div><div class='col-md-3'>" + carrito[i].producto + "</div><div class='col-xs-2'>" + carrito[i].qty + "</div><div class='col-md-2'>" + carrito[i].subtotal + "</div><div class='col-md-1'> <button type='button' class='btn btn-danger remove_item' pk='" + i + "'><span class='glyphicon glyphicon-remove'></span></button> </div></div>"
+            $(".carrito_lista").append(str)
+            $(".productos_carrito").append(str_prod)
+            total += parseFloat(carrito[i].subtotal)
+        }
+        $("#total_carrito").html("S./ " + total.toFixed(2))
+        $("#carrito_total").html("S./ " + total.toFixed(2))
+    }
 
-})
+    $("#cerrar_carrito").click(function() {
+        $(".carrito").hide("slide", {
+            direction: "down"
+        }, "slow");
+    })
+    $(".ver_carrito").click(function() {
+        $(".carrito").show("slide", {
+            direction: "down"
+        }, "slow");
+    })
+    $(".ver_pedidos").click(function() {
+        $(".pedidos").show("slide", {
+            direction: "down"
+        }, "slow");
+    })
+    $("#cerrar_pedidos").click(function() {
+        $(".pedidos").hide("slide", {
+            direction: "down"
+        }, "slow");
+    })
+    $(".ver_home").click(function() {
+        $(".usuario").hide("slide", {
+            direction: "right"
+        }, "slow");
+        $(".home").show("slide", {
+            direction: "left"
+        }, "slow");
+    })
+
+    $("#ver_user").click(function() {
+        $(".usuario").show("slide", {
+            direction: "right"
+        }, "slow");
+    })
 
 
-$("#qty").keyup(function(){
-	$("#sub_total").html((parseFloat($("#qty").val()) * parseFloat($("#tu_precio").html().substring(3))).toFixed(2) )
-})
-$("#buscar").click(function(){
-	  $( "#producto" ).keydown()
-})
+    $("#hacer_pedidos").click(function() {
+        $(".home").hide("slide", {
+            direction: "left"
+        }, "slow");
+    })
 
-$(".comprar_luis").click(function(){
-	$("#tu_casero").html("Luis")
-	$("#tu_precio").html($("#precio_luis").html())
-	$("#tu_producto").html($("#producto").val())
-	$( ".cantidades" ).show( "slide", { direction: "down" }, "slow" );
-})
+    $(document).on("click", ".remove_item", function() {
+        if ($(this).attr("pk") > -1) {
+            carrito.splice($(this).attr("pk"), 1);
+            sessionStorage.setItem("carrito", JSON.stringify(carrito))
+            ActualizarCarrito()
+        }
+    })
 
-$(".comprar_pedrito").click(function(){
-	$("#tu_casero").html("Pedrito")
-	$("#tu_precio").html($("#precio_pedrito").html())
-		$("#tu_producto").html($("#producto").val())
-	$( ".cantidades" ).show( "slide", { direction: "down" }, "slow" );
-})
+    $("#add_2_cart").click(function() {
+        casero = $("#tu_casero").html()
+        qty = parseFloat($("#qty").val())
+        producto = $("#tu_producto").html()
+        precio = parseFloat($("#tu_precio").html().substring(3))
+        subtotal = parseFloat($("#sub_total").html())
+        nueva_compra = new Producto(casero, qty, producto, precio, subtotal);
+        carrito.push(nueva_compra)
+        sessionStorage.setItem("carrito", JSON.stringify(carrito))
 
-$(".comprar_juanita").click(function(){
-	$("#tu_casero").html("Juanita")
-	$("#tu_precio").html($("#precio_juanita").html())
-		$("#tu_producto").html($("#producto").val())
-	$( ".cantidades" ).show( "slide", { direction: "down" }, "slow" );
-})
+        $("#cancelar_cantidades").click();
+        $("#cancelar").click();
+        ActualizarCarrito();
 
-$("#cancelar_cantidades").click(function(){
-	$( ".cantidades" ).hide( "slide", { direction: "down" }, "slow" );
-})
+    })
 
-$("#cancelar").click(function(){
-	$( ".opciones" ).hide( "slide", { direction: "down" }, "slow" );
-})
 
-	usuario = sessionStorage.getItem('user')
+    $("#qty").keyup(function() {
+        $("#sub_total").html((parseFloat($("#qty").val()) * parseFloat($("#tu_precio").html().substring(3))).toFixed(2))
+    })
+    $("#buscar").click(function() {
+        $("#producto").keydown()
+    })
 
-	$( function() {
-    var availableTags = [
-      "Manzanas",
-      "Peras",
-      "Platanos",
-      "Cebollas",
-      "Azucar",
-      "Tomates",
-      "Papa amarilla",
-      "Queso",
-      "Limones",
-      "Carne de Vaca",
-      "Carne de Chancho",
-      "Apio",
-      "Poro",
-      "Tallarines",
-      "Papa blanca",
-      "Ajos"
-    ];
-    $( "#producto" ).autocomplete({
-      source: availableTags,
-      select: function( event, ui ) {
-      	$("#precio_juanita").html("S/. " + (Math.random()*10).toFixed(2))
-      	$("#precio_luis").html("S/. " + (Math.random()*10).toFixed(2))
-      	$("#precio_pedrito").html("S/. " + (Math.random()*10).toFixed(2))
-      	$( ".opciones" ).show( "slide", { direction: "down" }, "slow" );
+    $(".comprar_luis").click(function() {
+        $("#tu_casero").html("Luis")
+        $("#tu_precio").html($("#precio_luis").html())
+        $("#tu_producto").html($("#producto").val())
+        $(".cantidades").show("slide", {
+            direction: "down"
+        }, "slow");
+    })
 
-      }
+    $(".comprar_pedrito").click(function() {
+        $("#tu_casero").html("Pedrito")
+        $("#tu_precio").html($("#precio_pedrito").html())
+        $("#tu_producto").html($("#producto").val())
+        $(".cantidades").show("slide", {
+            direction: "down"
+        }, "slow");
+    })
+
+    $(".comprar_juanita").click(function() {
+        $("#tu_casero").html("Juanita")
+        $("#tu_precio").html($("#precio_juanita").html())
+        $("#tu_producto").html($("#producto").val())
+        $(".cantidades").show("slide", {
+            direction: "down"
+        }, "slow");
+    })
+
+    $("#cancelar_cantidades").click(function() {
+        $(".cantidades").hide("slide", {
+            direction: "down"
+        }, "slow");
+    })
+
+    $("#cancelar").click(function() {
+        $(".opciones").hide("slide", {
+            direction: "down"
+        }, "slow");
+    })
+
+    usuario = sessionStorage.getItem('user')
+
+    $(function() {
+        var availableTags = [
+            "Manzanas",
+            "Peras",
+            "Platanos",
+            "Cebollas",
+            "Azucar",
+            "Tomates",
+            "Papa amarilla",
+            "Queso",
+            "Limones",
+            "Carne de Vaca",
+            "Carne de Chancho",
+            "Apio",
+            "Poro",
+            "Tallarines",
+            "Papa blanca",
+            "Ajos"
+        ];
+        $("#producto").autocomplete({
+            source: availableTags,
+            select: function(event, ui) {
+                $("#precio_juanita").html("S/. " + (Math.random() * 10).toFixed(2))
+                $("#precio_luis").html("S/. " + (Math.random() * 10).toFixed(2))
+                $("#precio_pedrito").html("S/. " + (Math.random() * 10).toFixed(2))
+                $(".opciones").show("slide", {
+                    direction: "down"
+                }, "slow");
+
+            }
+        });
     });
-  } );
-</script>
+    </script>
 </body>
+
 </html>
-
-
-
