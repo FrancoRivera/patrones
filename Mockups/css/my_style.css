@@ -166,7 +166,7 @@ h6 {
 .carrito, .checkout,
 .home_usuario, .home_comerciante,
 .perfil_usuario, .perfil_comerciante,
-.pedidos {
+.pedidos, .pedidos_comerciante, .notificacion_usuario{
     margin-left: -15px;
     bottom: 0;
     display: none;
@@ -178,6 +178,11 @@ overflow-y: inherit;
     overflow-x: inherit;
 }
 
+.notificacion_usuario{
+	top: 0;
+height: 100px;
+z-index: 99999999;
+}
 .opciones {
     height: 300px;
 }
@@ -185,7 +190,7 @@ overflow-y: inherit;
 .cantidades,
 .perfil_usuario, .perfil_comerciante,
 .carrito, .checkout,
-.pedidos {
+.pedidos, .pedidos_comerciante {
     height: 100%;
     z-index: 10;
 }

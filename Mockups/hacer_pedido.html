@@ -13,489 +13,491 @@
 <body>
     <div class="margin_30"></div>
     <div class="container-fluid">
-	    <div class="row">
-	    	<div class="col-xs-1"></div><div class="col-xs-4"> <span class="h1">Usuario</span></div><div class="col-xs-2"></div><div class="col-xs-4"><span class="h1">Comerciante</span></div>
-	    </div>
-	    <div class="margin_30"></div>
-       <div class="row">
-       <div class="col-xs-1"></div>
-    	<div class="col-xs-4"><div class="aplicacion_wrapper" id="pantalla">
-        <div class="container application_resize">
-            <div class="row">
-                <div class="col-xs-12" style="background-color:black;color:white">
-                    <div class="row text-center">
-                        <div class="col-xs-4">Movistar</div>
-                        <div class="col-xs-4">10:05</div>
-                        <div class="col-xs-4">92%</div>
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-4"> <span class="h1">Usuario</span></div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-4"><span class="h1">Comerciante</span></div>
+        </div>
+        <div class="margin_30"></div>
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <!-- //////////////////////////////// -->
+            <!-- PANTALLA DE USUARIO  -->
+            <!-- //////////////////////////////// -->
+            <div class="col-xs-4">
+                <div class="aplicacion_wrapper" id="pantalla">
+                    <div class="container application_resize">
+                        <div class="row">
+                            <div class="col-xs-12" style="background-color:black;color:white">
+                                <div class="row text-center">
+                                    <div class="col-xs-4">Movistar</div>
+                                    <div class="col-xs-4">10:05</div>
+                                    <div class="col-xs-4">92%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="content">
+                            <!-- begining of plantilla-->
+                            <div class="hacer_pedido">
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-1"><a href="#" class="ver_home_usuario"><span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a></div>
+                                    <div class="col-xs-8">
+                                        <h3>Realizar un Pedido!</h3></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <label for="">Escribe lo que buscas</label>
+                                        <input type="text" name="" id="producto" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="buscar" class="btn btn-primary form-control">Buscar</button>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8"><span class="h4">Tu carrito</span> &nbsp
+                                        <a href="#" class="ver_carrito">
+                                            <button class="btn btn-danger" type="button">Editar</button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="margin_10"></div>
+                                <div class="row carrito_lista">
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-4">
+                                        <h4>Total: </h4></div>
+                                    <div class="col-xs-4">
+                                        <h4 id="total_carrito">S/. 0.00</h4>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                            </div>
+                            <div class="checkout">
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h4 class="faded">Pagar!</h4></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-5">
+                                        <label for="Efectivo">Efectivo</label> &nbsp
+                                        <input type="radio" id="Efectivo" name="tipopago" checked="checked" value="Efectivo">
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <label for="Tarjeta">Tarjeta</label> &nbsp
+                                        <input type="radio" id="Tarjeta" name="tipopago" value="Tarjeta">
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="tarjeta_wrapper">
+                                    <div class="row">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-8">
+                                            <label for="">Numero de Tarjeta</label>
+                                            <input type="text" placeholder="Numero de tarjeta" name="" id="cc_number" class="form-control payment-info">
+                                        </div>
+                                    </div>
+                                    <div class="margin_30"></div>
+                                    <div class="row">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-8">
+                                            <label for="">Fecha Vencimiento (MM/YYYY)</label>
+                                            <input type="text" placeholder="Fecha Vencimiento" name="" id="fecha_vencimiento" class="form-control payment-info">
+                                        </div>
+                                    </div>
+                                    <div class="margin_30"></div>
+                                    <div class="row">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-5">
+                                            <label for="">CCV (NNN)</label>
+                                            <input type="text" placeholder="CCV" name="" id="ccv" class="form-control payment-info">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-4 letra_20"> Total: </div>
+                                    <div id="total_checkout" class="col-xs-4 letra_20"> Total: </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="pagar_checkout" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="cerrar_checkout" class="btn btn-danger form-control">Cancelar</button>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                            </div>
+                            <div class="opciones">
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h4 class="faded">Marca una opcion!</h4></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3 faded">Vendedor</div>
+                                    <div class="col-xs-3 faded">Precio/kg</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20">Juanita!</span></div>
+                                    <div class="col-xs-3 letra_20" id="precio_juanita">Precio</div>
+                                    <div class="col-xs-4">
+                                        <button type="button" class="btn btn-success comprar_juanita">Comprar</button>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20">Pedrito!</span></div>
+                                    <div class="col-xs-3 letra_20" id="precio_pedrito"><span class="">Precio!</span></div>
+                                    <div class="col-xs-4">
+                                        <button type="button" class="btn btn-success comprar_pedrito">Comprar</button>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20">Luis</span></div>
+                                    <div class="col-xs-3 letra_20" id="precio_luis">Precio</div>
+                                    <div class="col-xs-4">
+                                        <button type="button" class="btn btn-success comprar_luis">Comprar</button>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="cancelar" class="btn btn-danger form-control">Cancelar </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cantidades">
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h4 class="faded">Selecciona la cantidad!</h4></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3 faded">Vendedor</div>
+                                    <div class="col-xs-4 faded">Producto</div>
+                                    <div class="col-xs-3 faded">Precio/kg</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20" id="tu_vendedor">Juanita!</span></div>
+                                    <div class="col-xs-4 letra_20" id="tu_producto">Producto</div>
+                                    <div class="col-xs-3 letra_20" id="tu_precio">10.05</div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20">QTY:</span></div>
+                                    <div class="col-xs-6">
+                                        <input type="" name="" id="qty" class="form-control" placeholder="QTY">
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20">Total</span></div>
+                                    <div class="col-xs-3 letra_20">S./</div>
+                                    <div class="col-xs-3 letra_20" id="sub_total">0.00</div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" class="btn btn-success form-control" id="add_2_cart"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp &nbsp Agregar al Carrito</button>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="cancelar_cantidades" class="btn btn-danger form-control">Cancelar </button>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrito">
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h4 class="faded">Tu carrito!</h4></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2 faded">Vendedor</div>
+                                    <div class="col-xs-3 faded">Producto</div>
+                                    <div class="col-xs-2 faded">Qty</div>
+                                    <div class="col-xs-3 faded">Subtotal</div>
+                                </div>
+                                <div class="productos_carrito"></div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3"><span class="letra_20">Total</span></div>
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-5 letra_20" id="carrito_total">0.00</div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="pagar_carrito" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="cerrar_carrito" class="btn btn-danger form-control">Cerrar Carrito </button>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="home_usuario">
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h3 id="greeting">Hola!</h3></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <a href="#" id="hacer_pedidos">
+                                        <div class="col-xs-4 text-center homeslab hs_1"><span class="glyphicon glyphicon-plus"></span>
+                                            <h4>Hacer un  Pedido</h4></div>
+                                    </a>
+                                    <a href="#" class="ver_carrito">
+                                        <div class="col-xs-4 text-center homeslab hs_2"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span>
+                                            <h4>Ver mi Carrito</h4></div>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <a href="#" class="ver_pedidos">
+                                        <div class="col-xs-4 text-center homeslab hs_3"><span class="glyphicon glyphicon glyphicon-th-list"></span>
+                                            <h4> Lista De Pedidos</h4></div>
+                                    </a>
+                                    <a id="ver_perfil_usuario" href="#">
+                                        <div class="col-xs-4 text-center homeslab hs_4"><span class="glyphicon glyphicon-user"></span>
+                                            <h4>Ver Mi Perfil</h4></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="perfil_usuario">
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-1">
+                                        <a class="ver_home_usuario" href="#">
+                                            <span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a>
+                                    </div>
+                                </div>
+                                <div class="profile_pic"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="margin_30"></div>
+                                <h3 class="text-center"><span id="user">Usuario</span></h3>
+                                <h3 class="text-center"><span class="h5">DNI:</span>&nbsp &nbsp<span id="dni">dni</span></h3>
+                                <h3 class="text-center"><span class="h5">Telefono:</span>&nbsp &nbsp<span id="phone">Phone</span></h3>
+                                <div class="margin_10"></div>
+                                <h4 class="text-center" id="place"> Lugar</h4>
+                                <div class="margin_30"></div>
+                                <a href="login.html" title="">
+                                    <button type="button" id="cerrar_sesion" class="btn btn-danger form-control">Cerrar Sesion</button>
+                                </a>
+                            </div>
+                            <div class="pedidos">
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h4 class="faded">Tus Pedidos!</h4></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-2 faded">Vendedor</div>
+                                    <div class="col-xs-3 faded">Total</div>
+                                    <div class="col-xs-2 faded">Estado</div>
+                                </div>
+                                <div class="pedidos_usuario"></div>
+                                <div class="margin_100"></div>
+                                
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="cerrar_pedidos" class="btn btn-danger form-control">Cerrar Pedidos </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notificacion_usuario">
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-10">
+                                        <h3>El pedido esta listo!</h3></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-10">
+                                        <h5 id="notif_usuario_content"></h5></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of id contenido-->
                     </div>
+                    <!-- end of application_resize -->
                 </div>
             </div>
-            <div id="content">
-                <!-- begining of plantilla-->
-                <div class="hacer_pedido">
-	                <div class="margin_30"></div>
-	                <div class="row">
-	                    <div class="col-xs-1"></div>
-	                    <div class="col-xs-1"><a href="#" class="ver_home_usuario"><span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a></div>
-	                    <div class="col-xs-8">
-	                        <h3>Realizar un Pedido!</h3></div>
-	                </div>
-	                <div class="margin_30"></div>
-	                <div class="row">
-	                    <div class="col-xs-2"></div>
-	                    <div class="col-xs-8">
-	                        <label for="">Escribe lo que buscas</label>
-	                        <input type="text" name="" id="producto" class="form-control">
-	                    </div>
-	                </div>
-	                <div class="margin_30"></div>
-	                <div class="row">
-	                    <div class="col-xs-2"></div>
-	                    <div class="col-xs-8">
-	                        <button type="button" id="buscar" class="btn btn-primary form-control">Buscar</button>
-	                    </div>
-	                </div>
-	                <div class="margin_30"></div>
-	                <div class="row">
-	                    <div class="col-xs-2"></div>
-	                    <div class="col-xs-8"><span class="h4">Tu carrito</span> &nbsp
-	                        <a href="#" class="ver_carrito"><button class="btn btn-danger" type="button" >Editar</button></a>
-	                       
-	                    </div>
-	                </div>
-	                <div class="margin_10"></div>
-	                <div class="row carrito_lista">
-	                </div>
-	                <div class="margin_30"></div>
-	                <div class="row">
-	                    <div class="col-xs-2"></div>
-	                    <div class="col-xs-4">
-	                        <h4>Total: </h4></div>
-	                    <div class="col-xs-4">
-	                        <h4 id="total_carrito">S/. 0.00</h4>
-	                    </div>
-	                </div>
-                    <div class="margin_30"></div>
-                </div>
-                 <div class="checkout">
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <h4 class="faded">Pagar!</h4></div>
-                    </div>
-                     <div class="margin_30"></div>
-                     <div class="row">
-                      <div class="col-xs-1"></div>
-                        <div class="col-xs-5"><label for="Efectivo">Efectivo</label> &nbsp <input type="radio" id="Efectivo" name="tipopago" checked="checked" value="Efectivo"></div>
-                        <div class="col-xs-5"><label for="Tarjeta">Tarjeta</label> &nbsp<input type="radio" id="Tarjeta" name="tipopago" value="Tarjeta"></div>
-                    </div>
-                    <div class="margin_30"></div>
-                  	<div class="tarjeta_wrapper">                  
-		                  	 <div class="row">
-		                        <div class="col-xs-2"></div>
-		                        <div class="col-xs-8">
-		                        	<label for="">Numero de Tarjeta</label>
-		                           <input type="text" placeholder="Numero de tarjeta" name="" id="cc_number" class="form-control payment-info"></div>
-		                    </div>
-
-		       				<div class="margin_30"></div>
-		       				 <div class="row">
-		                        <div class="col-xs-2"></div>
-		                        <div class="col-xs-8">
-		                        	<label for="">Fecha Vencimiento (MM/YYYY)</label>
-		                           <input type="text" placeholder="Fecha Vencimiento" name="" id="fecha_vencimiento" class="form-control payment-info"></div>
-		                    </div>
-		                    <div class="margin_30"></div>
-		                  	 <div class="row">
-		                        <div class="col-xs-2"></div>
-		                            <div class="col-xs-5">
-		                        	<label for="">CCV (NNN)</label>
-		                           <input type="text" placeholder="CCV" name="" id="ccv" class="form-control payment-info"></div>
-		                    </div>
-                    	</div>
-            	        <div class="margin_30"></div>
-    	        	 <div class="row">
-                        <div class="col-xs-2"></div>
-                            <div class="col-xs-4 letra_20"> Total: </div> <div id="total_checkout" class="col-xs-4 letra_20"> Total: </div>
-                    </div>
-
-    	                <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button"  id="pagar_checkout" class="btn btn-success form-control" > <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
-                        </div>
-                    </div>
-                    	
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button" id="cerrar_checkout" class="btn btn-danger form-control">Cancelar</button>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                </div>
-
-                <div class="opciones">
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <h4 class="faded">Marca una opcion!</h4></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3 faded">Casero</div>
-                        <div class="col-xs-3 faded">Precio/kg</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20">Juanita!</span></div>
-                        <div class="col-xs-3 letra_20" id="precio_juanita">Precio</div>
-                        <div class="col-xs-4">
-                            <button type="button" class="btn btn-success comprar_juanita">Comprar</button>
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20">Pedrito!</span></div>
-                        <div class="col-xs-3 letra_20" id="precio_pedrito"><span class="">Precio!</span></div>
-                        <div class="col-xs-4">
-                            <button type="button" class="btn btn-success comprar_pedrito">Comprar</button>
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20">Luis</span></div>
-                        <div class="col-xs-3 letra_20" id="precio_luis">Precio</div>
-                        <div class="col-xs-4">
-                            <button type="button" class="btn btn-success comprar_luis">Comprar</button>
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button" id="cancelar" class="btn btn-danger form-control">Cancelar </button>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="cantidades">
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <h4 class="faded">Selecciona la cantidad!</h4></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3 faded">Casero</div>
-                        <div class="col-xs-4 faded">Producto</div>
-                        <div class="col-xs-3 faded">Precio/kg</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20" id="tu_casero">Juanita!</span></div>
-                        <div class="col-xs-4 letra_20" id="tu_producto">Producto</div>
-                        <div class="col-xs-3 letra_20" id="tu_precio">10.05</div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20">QTY:</span></div>
-                        <div class="col-xs-6">
-                            <input type="" name="" id="qty" class="form-control" placeholder="QTY">
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20">Total</span></div>
-                        <div class="col-xs-3 letra_20">S./</div>
-                        <div class="col-xs-3 letra_20" id="sub_total">0.00</div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button" class="btn btn-success form-control" id="add_2_cart"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp &nbsp Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button" id="cancelar_cantidades" class="btn btn-danger form-control">Cancelar </button>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="carrito">
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <h4 class="faded">Tu carrito!</h4></div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-2 faded">Casero</div>
-                        <div class="col-xs-3 faded">Producto</div>
-                        <div class="col-xs-2 faded">Qty</div>
-                        <div class="col-xs-3 faded">Subtotal</div>
-                    </div>
-                    <div class="productos_carrito"></div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-3"><span class="letra_20">Total</span></div>
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-5 letra_20" id="carrito_total">0.00</div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button" id="pagar_carrito" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <button type="button" id="cerrar_carrito" class="btn btn-danger form-control">Cerrar Carrito </button>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="home_usuario">
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <h3 id="greeting">Hola!</h3></div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <a href="#" id="hacer_pedidos">
-                            <div class="col-xs-4 text-center homeslab hs_1"><span class="glyphicon glyphicon-plus"></span>
-                                <h4>Hacer un  Pedido</h4></div>
-                        </a>
-                        <a href="#" class="ver_carrito">
-                            <div class="col-xs-4 text-center homeslab hs_2"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span>
-                                <h4>Ver mi Carrito</h4></div>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <a href="#" class="ver_pedidos">
-                            <div class="col-xs-4 text-center homeslab hs_3"><span class="glyphicon glyphicon glyphicon-th-list"></span>
-                                <h4> Lista De Pedidos</h4></div>
-                        </a>
-                        <a id="ver_perfil_usuario" href="#">
-                            <div class="col-xs-4 text-center homeslab hs_4"><span class="glyphicon glyphicon-user"></span>
-                                <h4>Ver Mi Perfil</h4></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="perfil_usuario">
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-1">
-                            <a class="ver_home_usuario" href="#">
-                                <span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a>
-                        </div>
-                    </div>
-                    <div class="profile_pic"><span class="glyphicon glyphicon-user"></span></div>
-                    <div class="margin_30"></div>
-                    <h3 class="text-center"><span id="user">Usuario</span></h3>
-                    <h3 class="text-center"><span class="h5">DNI:</span>&nbsp &nbsp<span id="dni">dni</span></h3>
-                    <h3 class="text-center"><span class="h5">Telefono:</span>&nbsp &nbsp<span id="phone">Phone</span></h3>
-                    <div class="margin_10"></div>
-                    <h4 class="text-center" id="place"> Lugar</h4>
-					<div class="margin_30"></div>
-
-					<a href="login.html" title=""><button type="button" id="cerrar_sesion" class="btn btn-danger form-control">Cerrar Sesion</button></a>
+             <div class="col-xs-2">
+				<div class="row">
+					<div class="col-md-12"> <button type="button" class="btn btn-primary form-control">Generar Informacion aleatoria</button></div>
 				</div>
-				<div class="pedidos">
-					<div class="row">
-						<div class="col-xs-2"></div>
-						<div class="col-xs-8"><h4 class="faded">Tus Pedidos!</h4></div>
-		            </div>
-           			 <div class="margin_30"></div>
-		            <div class="row">
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-2 faded">Casero</div>
-		                <div class="col-xs-3 faded">Total</div>
-		                <div class="col-xs-2 faded">Estado</div>
-		            </div>
-		            <div class="productos_carrito"></div>
-		            <div class="margin_30"></div>
-		            <div class="row">
-	                	<div class="col-xs-1"></div>
-		                <div class="col-xs-3"><span class="letra_20">Total</span></div>
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-5 letra_20" id="carrito_total">0.00</div>
-            		</div>
-		            <div class="margin_30"></div>
-		            <div class="margin_30"></div>
-		            <div class="row">
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-8">
-                    	<button type="button" id="" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
-                		</div>
-            		</div>
-		            <div class="margin_30"></div>
-		            <div class="row">
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-8">
-	                    	<button type="button" id="cerrar_pedidos" class="btn btn-danger form-control">Cerrar Pedidos </button>
-                		</div>
-            		</div>
-        		</div>
+				<div class="margin_30"></div>
+            	<div class="row">
+					<div class="col-md-12"> <button type="button" class="btn btn-primary form-control">Borrar Informacion </button></div>
+				</div>
+			</div>
+        
+            <!-- //////////////////////////////// -->
+            <!-- PANTALLA DE ADMINISTRADOR  -->
+            <!-- //////////////////////////////// -->
+            <div class="col-xs-4">
+                <div class="aplicacion_wrapper" id="pantalla">
+                    <div class="container application_resize">
+                        <div class="row">
+                            <div class="col-xs-12" style="background-color:black;color:white">
+                                <div class="row text-center">
+                                    <div class="col-xs-4">Movistar</div>
+                                    <div class="col-xs-4">10:05</div>
+                                    <div class="col-xs-4">92%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="content">
+                            <div class="home_comerciante">
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h3 id="greeting">Hola!</h3></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <a href="#" class="ver_pedidos_comerciante">
+                                        <div class="col-xs-4 text-center homeslab hs_1"><span class="glyphicon glyphicon-eye-open"></span>
+                                            <h4>Ver Pedidos </h4></div>
+                                    </a>
+                                    <a href="#" class="ver_reportes">
+                                        <div class="col-xs-4 text-center homeslab hs_2"><span class="glyphicon glyphicon glyphicon-search"></span>
+                                            <h4>Reporte Productos </h4></div>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <a id="ver_perfil_comerciante" href="#">
+                                        <div class="col-xs-4 text-center homeslab hs_3"><span class="glyphicon glyphicon-user"></span>
+                                            <h4>Ver Mi Perfil</h4></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="perfil_comerciante">
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-1">
+                                        <a class="ver_home_comerciante" href="#">
+                                            <span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a>
+                                    </div>
+                                </div>
+                                <div class="profile_pic"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="margin_30"></div>
+                                <h3 class="text-center"><span id="user">Usuario</span></h3>
+                                <h3 class="text-center"><span class="h5">DNI:</span>&nbsp &nbsp<span id="dni">dni</span></h3>
+                                <h3 class="text-center"><span class="h5">Telefono:</span>&nbsp &nbsp<span id="phone">Phone</span></h3>
+                                <div class="margin_10"></div>
+                                <h4 class="text-center" id="place"> Lugar</h4>
+                                <div class="margin_30"></div>
+                                <a href="login.html" title="">
+                                    <button type="button" id="cerrar_sesion" class="btn btn-danger form-control">Cerrar Sesion</button>
+                                </a>
+                            </div>
 
-    		</div>   <!-- end of id contenido-->
-    	</div> <!-- end of application_resize -->
-    </div>
+                            <div class="pedidos_comerciante">
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <h4 class="faded">Tus Pedidos!</h4></div>
+                                </div>
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-3 faded">Numero OC</div>
+                                    <div class="col-xs-3 faded">Fecha</div>
+                                    <div class="col-xs-3 faded">Estado</div>
+                                </div>
+                                <div class="l_pedidos_comerciante"></div>
+                                <div class="margin_30"></div>
+                              
+                                <div class="margin_30"></div>
+                                <div class="row">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-8">
+                                        <button type="button" id="cerrar_pedidos_comerciante" class="btn btn-danger form-control">Cerrar Pedidos </button>
+                                    </div>
+                                </div>
+                            </div>
 
-    </div>
-
-    <div class="col-xs-2"></div>
-     <!-- //////////////////////////////// --> 
-
-    <!-- PANTALLA DE ADMINISTRADOR  --> 
-
-    <!-- //////////////////////////////// --> 
-    <div class="col-xs-4">
-    	
-    	<div class="aplicacion_wrapper" id="pantalla">
-        <div class="container application_resize">
-            <div class="row">
-                <div class="col-xs-12" style="background-color:black;color:white">
-                    <div class="row text-center">
-                        <div class="col-xs-4">Movistar</div>
-                        <div class="col-xs-4">10:05</div>
-                        <div class="col-xs-4">92%</div>
+                        </div>
+                        <!-- end of id contenido-->
                     </div>
+                    <!-- end of application_resize -->
                 </div>
             </div>
-            <div id="content">
-                <div class="home_comerciante">
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-8">
-                            <h3 id="greeting">Hola!</h3></div>
-                    </div>
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <a href="#" class="ver_pedidos">
-                            <div class="col-xs-4 text-center homeslab hs_1"><span class="glyphicon glyphicon-eye-open"></span>
-                                <h4>Ver Pedidos </h4></div>
-                        </a>
-                        <a href="#" class="ver_reportes">
-                            <div class="col-xs-4 text-center homeslab hs_2"><span class="glyphicon glyphicon glyphicon-search"></span>
-                                <h4>Reporte Productos </h4></div>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <a id="ver_perfil_comerciante" href="#">
-                            <div class="col-xs-4 text-center homeslab hs_3"><span class="glyphicon glyphicon-user"></span>
-                                <h4>Ver Mi Perfil</h4></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="perfil_comerciante">
-                    <div class="margin_30"></div>
-                    <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-1">
-                            <a class="ver_home_comerciante" href="#">
-                                <span class="h4"><span class="glyphicon glyphicon-arrow-left"></span></span> Volver</a>
-                        </div>
-                    </div>
-                    <div class="profile_pic"><span class="glyphicon glyphicon-user"></span></div>
-                    <div class="margin_30"></div>
-                    <h3 class="text-center"><span id="user">Usuario</span></h3>
-                    <h3 class="text-center"><span class="h5">DNI:</span>&nbsp &nbsp<span id="dni">dni</span></h3>
-                    <h3 class="text-center"><span class="h5">Telefono:</span>&nbsp &nbsp<span id="phone">Phone</span></h3>
-                    <div class="margin_10"></div>
-                    <h4 class="text-center" id="place"> Lugar</h4>
-					<div class="margin_30"></div>
-
-					<a href="login.html" title=""><button type="button" id="cerrar_sesion" class="btn btn-danger form-control">Cerrar Sesion</button></a>
-				</div>
-				<div class="pedidos">
-					<div class="row">
-						<div class="col-xs-2"></div>
-						<div class="col-xs-8"><h4 class="faded">Tus Pedidos!</h4></div>
-		            </div>
-           			 <div class="margin_30"></div>
-		            <div class="row">
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-2 faded">Casero</div>
-		                <div class="col-xs-3 faded">Total</div>
-		                <div class="col-xs-2 faded">Estado</div>
-		            </div>
-		            <div class="productos_carrito"></div>
-		            <div class="margin_30"></div>
-		            <div class="row">
-	                	<div class="col-xs-1"></div>
-		                <div class="col-xs-3"><span class="letra_20">Total</span></div>
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-5 letra_20" id="carrito_total">0.00</div>
-            		</div>
-		            <div class="margin_30"></div>
-		            <div class="margin_30"></div>
-		            <div class="row">
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-8">
-                    	<button type="button" id="" class="btn btn-success form-control"> <span class="glyphicon glyphicon-usd"></span> &nbsp &nbsp Pagar </button>
-                		</div>
-            		</div>
-		            <div class="margin_30"></div>
-		            <div class="row">
-		                <div class="col-xs-2"></div>
-		                <div class="col-xs-8">
-	                    	<button type="button" id="cerrar_pedidos" class="btn btn-danger form-control">Cerrar Pedidos </button>
-                		</div>
-            		</div>
-        		</div>
-
-
+        </div>
+        </div>
       
-    		</div>   <!-- end of id contenido-->
-    	</div> <!-- end of application_resize -->
-    </div>
-    </div>
-    	</div>
+
 
     </div>
-   
-    
-
-   
-    
     <script src="js/jquery.js">
     </script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script>
-   
-
-
-
-    
     </script>
 </body>
 
