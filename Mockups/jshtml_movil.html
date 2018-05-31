@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+body {
+    background: #97ccc8;;
+    color: white;
+    text-align: center;
+    	background-image: url("../imgs/crissxcross.png");
+background-size: 100px;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto Slab', serif;
+}
+
+#raw_content {
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+}
+
+#raw_yolo {
+    width: 100%;
+    height: 100%;
+    color:black;
+}
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding: 0px;
+}
+
+.aplicacion_wrapper {
+    width: 375px;
+    height: 667px;
+    margin: 0 auto;
+}
+
+.application_resize {
+    width: 80%;
+    height: 80%;
+    border: 1px solid black;
+    position: relative;
+    background: #292929;
+}
+
+.margin_10 {
+    width: 100%;
+    height: 10px;
+}
+
+.margin_30 {
+    width: 100%;
+    height: 30px;
+}
+
+.margin_100 {
+    width: 100%;
+    height: 100px;
+}
+
+.footer_nav {
+    height: 50px;
+    margin: 0 -15px 0 -15px;
+    border: 1px solid black;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+#content {
+    height: 490px;
+    overflow-y: initial;
+    overflow-x: hidden;
+}
+
+.homeslab {
+    background: white;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 10px;
+    color: #3380af;
+}
+
+.homeslab .glyphicon {
+    font-size: 20px;
+}
+
+.hs_1 {
+    background: #cc5050;
+    color: white!important;
+}
+
+.hs_2 {
+    background: #449922;
+    color: white!important;
+}
+
+.hs_3 {
+    background: #5088cc;
+    ;
+    color: white!important;
+}
+
+.hs_4 {
+    background: #d8dc3a;
+    color: #5a5a5a;
+}
+
+.opciones,
+.cantidades,
+.carrito, .checkout,
+.home_usuario, .home_comerciante,
+.perfil_usuario, .perfil_comerciante, .reportes_comerciante, .resultado_reportes_comerciante, .pedido_detalle,
+.pedidos, .pedidos_comerciante, .notificacion_usuario, .login_usuario, .registro_usuario, .hacer_pedido, .notificacion_comerciante{
+    margin-left: -15px;
+    bottom: 0;
+	display:none;
+    background: white;
+    color: black;
+    position: absolute;
+    width: 100%;
+	overflow-y: inherit;
+    overflow-x: inherit;
+    background-image: url("../imgs/diagonals.png");
+}
+
+.notificacion_usuario, .notificacion_comerciante{
+	top: 0;
+height: 100px;
+z-index: 99999999;
+}
+.opciones {
+    height: 300px;
+}
+.hacer_pedido{
+	display: block;
+	z-index: 0;
+	height:100%;
+}
+.cantidades,
+.perfil_usuario, .perfil_comerciante,
+.carrito, .checkout, .pedido_detalle,
+.pedidos, .pedidos_comerciante,  .login_usuario, .registro_usuario, .reportes_comerciante, .resultado_reportes_comerciante{
+    height: 100%;
+    z-index: 10;
+}
+.checkout, .resultado_reportes_comerciante,{
+	z-index: 20;
+}
+.login_usuario{
+	z-index: 30;
+}
+.registro_usuario{
+	z-index: 40;
+}
+
+.perfil_usuario a, .perfil_comerciante a {
+    color: #333!important;
+}
+
+.home_usuario, .home_comerciante, .hacer_pedido {
+    background:rgb(31, 62, 44);
+    color: white;
+    height: 100%;
+    display: block;
+    	background-size: 400px;
+background-image: url("../imgs/dark-mosaic.png");
+}
+
+
+.faded {
+    opacity: 0.6;
+}
+
+.letra_20 {
+    font-size: 20px;
+}
+
+a {
+    color: white;
+}
+
+.profile_pic {
+    width: 130px;
+    height: 130px;
+    background: rgb(72, 72, 72);
+    margin: 0 auto;
+    border-radius: 10px;
+    color: white;
+    font-size: 130px
+}
+
+.tarjeta_wrapper {
+    display: none;
+}
+</style>
+</head>
+<body>
+<div id="raw_content">
+<textarea id="raw_yolo"></textarea>
+</div>
+<button id="guardar" class="btn btn-primary">Guardar </button>
+<button id="cargar" class="btn btn-primary">Cargar </button>
+<button id="insertar" class="btn btn-primary">Insertar </button>
+<button id="copiar" class="btn btn-primary">Copiar </button>
+<div class="aplicacion_wrapper" id="pantalla">
+   <div class="container application_resize">
+    <div class="row">
+    <div class="col-md-12" style="background-color:black;color:white"> <div class="row text-center"> <div class="col-sm-4">Movistar</div><div class="col-sm-4">10:05</div><div class="col-sm-4">92%</div></div>
+
+</div>
+   </div>
+
+<div id="content">
+
+</div>
+
+<div class="footer_nav">
+
+</div>
+
+   </div>
+</div> <!-- End of application wrapper -->
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"> </script>
+ 
+ <script>
+ (function($) {
+    $.fn.getCursorPosition = function() {
+        var input = this.get(0);
+        if (!input) return; // No (input) element found
+        if ('selectionStart' in input) {
+            // Standard-compliant browsers
+            return input.selectionStart;
+        } else if (document.selection) {
+            // IE
+            input.focus();
+            var sel = document.selection.createRange();
+            var selLen = document.selection.createRange().text.length;
+            sel.moveStart('character', -input.value.length);
+            return sel.text.length - selLen;
+        }
+    }
+})(jQuery);
+
+
+
+	$("#raw_yolo").on("keydown keyup change", function(){
+		$("#content").html($.parseHTML($("#raw_yolo").val()));
+	})
+	$("#guardar").click(function(){
+		sessionStorage.setItem('html', $("#raw_yolo").val())
+	});
+	$("#cargar").click(function(){
+		$("#raw_yolo").val(sessionStorage.getItem('html'));
+	});
+	$("#copiar").click(function(){
+
+		  // Crea un campo de texto "oculto"
+		  var aux = document.createElement("input");
+
+		  // Asigna el contenido del elemento especificado al valor del campo
+		  aux.setAttribute("value", document.getElementById("pantalla").innerHTML);
+
+		  // Añade el campo a la página
+		  document.body.appendChild(aux);
+
+		  // Selecciona el contenido del campo
+		  aux.select();
+
+		  // Copia el texto seleccionado
+		  document.execCommand("copy");
+
+		  // Elimina el campo de la página
+		  document.body.removeChild(aux);
+
+		  $("#copiar").html("Copiado!")
+
+	})
+	$("#insertar").click(function(){
+		$(".aplicacion_wrapper").html();
+		alert($("#raw_yolo").getCursorPosition())
+
+		var $txt = $("#raw_yolo");
+        var caretPos = $txt.getCursorPosition();
+        var textAreaTxt = $txt.val();
+        var txtToAdd = '<div class="margin_30"></div><div class="row"> \
+        <div class="col-sm-2"></div><div class="col-sm-8"></div></div>';
+        $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+	});
+
+
+  </script>
+</script>
+</body>
+</html>
